@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang='pt-br'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Behavioral Finance — Bloco 4 (Completo)</title>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --paper: #0b1723;
+            --muted: #333;
+            --accent: #0b5cff;
+            --card: #ffffff;
+            --note: #f7fafc
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: var(--bg);
+            color: var(--paper)
+        }
+
+        .frame {
+            max-width: 1100px;
+            margin: 12px auto;
+            background: var(--card);
+            border-radius: 8px;
+            padding: 12px 18px 18px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .04)
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eef2ff
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 18px
+        }
+
+        .stage {
+            height: 760px;
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column
+        }
+
+        .slide {
+            flex: 1;
+            display: flex;
+            gap: 18px;
+            padding: 18px;
+            border-radius: 8px;
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            border: 1px solid #eef6ff;
+            overflow: auto
+        }
+
+        .main {
+            flex: 1;
+            min-width: 0
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 10px
+        }
+
+        .content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 8px 0
+        }
+
+        .content ul {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 8px 0 14px 20px
+        }
+
+        .notes {
+            margin-top: 10px;
+            background: #fbfdff;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eef6ff;
+            font-size: 13px;
+            color: var(--muted);
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 6px 18px rgba(11, 92, 255, .04);
+        }
+        
+        .notes h4 {
+            margin: 0;
+            font-size: 13px;
+            color: var(--accent);
+        }
+        
+        .notes p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.45;
+            margin-top: 8px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            gap: 12px
+        }
+
+        button {
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer
+        }
+
+        @media (max-width:900px) {
+            .aside {
+                display: none
+            }
+
+            .stage {
+                height: 520px
+            }
+
+            .title {
+                font-size: 20px
+            }
+
+            .content p {
+                font-size: 14px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class='frame'>
+        <header>
+            <h1>Behavioral Finance — Bloco 4 (Completo)</h1>
+        </header>
+        <div class='stage' id='stage'></div>
+        <div class='nav'>
+            <div><strong id='counter'>Slide 1 / 24</strong></div>
+            <div style='display:flex;gap:8px'><button id='prev' disabled>Anterior</button><button id='next'>Próximo</button></div>
+        </div>
+    </div>
+    <script>
+        const slides = [{"title": "Slide 1 — Abertura", "subtitle": "Bloco 4: Integração, Neuroeconomia e Casos Práticos", "paragraphs": ["Bem‑vindos ao Bloco 4. Nesta unidade final integraremos os conhecimentos adquiridos nos blocos anteriores, explorando explicações neurocientíficas para decisões em risco, experimentos de economia que reproduzem bolhas e comportamentos coletivos, e implicações práticas para contabilidade e auditoria.", "O objetivo é consolidar teoria e prática: como reconhecer, mitigar e comunicar julgamentos complexos em ambientes onde vieses, ruído e padrões de mercado interagem."], "bullets": ["Equity premium puzzle, liquidez e neuroeconomia.", "Economia experimental e integração prática."], "ref": "Burton & Shah, Cap.18–21"}, {"title": "Slide 2 — Agenda do Bloco 4", "subtitle": "O que será tratado", "paragraphs": ["A sequência aborda: (1) Equity Premium Puzzle e explicações comportamentais; (2) liquidez, custos de transação e prêmio de liquidez; (3) neuroeconomia — estruturas cerebrais e tomada de decisão; (4) economia experimental e bolhas de laboratório; e (5) integração final com aplicações contábeis e governança.", "Cada sessão traz implicações práticas para mensuração, disclosure e auditoria, bem como recomendações de mitigação organizacional."], "bullets": ["Equity premium puzzle.", "Neuroeconomia e experimentos.", "Integração prática para contabilidade."], "ref": "Burton & Shah, Cap.18–21"}, {"title": "Slide 3 — Equity Premium Puzzle", "subtitle": "O enigma dos prêmios de risco", "paragraphs": ["O Equity Premium Puzzle, identificado por Mehra e Prescott (1985), refere‑se ao prêmio histórico excessivo das ações sobre títulos menos arriscados que não é explicável por modelos clássicos com aversão ao risco razoável. A discrepância sugeriu que a teoria padrão subestima fatores comportamentais e preferências intertemporais.", "Em finanças comportamentais, explicações incluem aversão à perda (perdas pesam mais que ganhos), miopia temporal (avaliações frequentes aumentam a percepção de risco) e vieses como excesso de confiança. Fricções de mercado e liquidez também reforçam a necessidade de maior prêmio."], "bullets": ["Prêmio histórico das ações > explicado por modelos.", "Possíveis explicações: aversão à perda, miopia e liquidez."], "ref": "Mehra & Prescott (1985); Burton & Shah"}, {"title": "Slide 4 — Liquidez e prêmio de liquidez", "subtitle": "Importância em pricing", "paragraphs": ["Ativos menos líquidos exigem prêmio extra para compensar custo de execução e risco de não poder negociar quando necessário. Esse prêmio aparece nas avaliações de custo de capital e em práticas de valuation, afetando estimativas contábeis.", "Contadores devem considerar indicadores de liquidez (spreads, volume, profundidade de mercado) ao estimar custo de capital e ao avaliar se ajustes em premissas são justificáveis por mudanças estruturais de liquidez."], "bullets": ["Ativos ilíquidos → prêmio maior.", "Usar spreads e volume como sinais."], "ref": "Liquidity premium literature"}, {"title": "Slide 5 — Neuroeconomia: breve introdução", "subtitle": "O que estuda e por que importa", "paragraphs": ["Neuroeconomia combina neurociência, psicologia e economia para entender os mecanismos cerebrais por trás de decisões econômicas. Estudos usam técnicas como fMRI para mapear regiões ativas durante escolhas com risco e recompensa.", "Compreender processos neurais (amígdala, córtex pré‑frontal) ajuda a explicar por que emoções, impulso e raciocínio deliberativo entram em conflito, gerando comportamentos como aversão à perda e excesso de confiança."], "bullets": ["Mapear decisões em termos neurais.", "Conflito emoção vs. razão: amígdala x córtex pré‑frontal."], "ref": "Neuroeconomics literature"}, {"title": "Slide 6 — Estruturas cerebrais e decisão", "subtitle": "Amígdala, córtex pré‑frontal e recompensa", "paragraphs": ["A amígdala está associada a respostas emocionais — medo e reações de aversão — que podem levar a decisões conservadoras. O córtex pré‑frontal dorsolateral está envolvido no raciocínio deliberativo e na inibição de impulsos, enquanto o sistema de recompensa (estriado) processa potenciais ganhos.", "Essas estruturas interagem em decisões financeiras: sob estresse, o processamento emocional pode sobrepor-se ao raciocínio, explicando respostas de pânico e comportamentos de manada em momentos de crise."], "bullets": ["Amígdala: emoção/medo.", "Córtex pré‑frontal: razão e controle.", "Estriado: recompensa e motivação."], "ref": "Neuroeconomics studies"}, {"title": "Slide 7 — Emoção e julgamento profissional", "subtitle": "Como emoções afetam contadores e auditores", "paragraphs": ["Profissionais também são sujeitos às mesmas respostas neurais: medo de repercussões, desejo de aprovação e aversão a perda influenciam julgamentos contábeis. Em situações de pressão, decisões podem tender a evitar reconhecimento de más notícias.", "Estruturas de governança e processos formais (checklists, revisão independente) ajudam a 'engessar' respostas impulsivas e substituí‑las por procedimentos deliberativos que reduzem o impacto emocional nas escolhas."], "bullets": ["Profissionais afetados por emoções.", "Governança como amortecedor de respostas impulsivas."], "ref": "Behavioral auditing literature"}, {"title": "Slide 8 — Economia experimental: bolhas em laboratório", "subtitle": "Evidência de Vernon Smith e sucessores", "paragraphs": ["Economia experimental, iniciada por Vernon Smith, mostrou que bolhas de preço podem ocorrer mesmo em mercados laboratoriais com participantes racionais e informação transparente. Experimentos replicam formação de bolhas por expectativas e comportamento coletivo.", "Esses resultados reforçam a ideia de que mecanismos institucionais e psicossociais — não apenas informação privada — podem produzir desvios de preço e volatilidade, com lições diretas para políticas de disclosure e auditoria."], "bullets": ["Bolhas ocorrem em laboratório.", "Importância de dinâmica experimental para política."], "ref": "Vernon Smith; experimental literature"}, {"title": "Slide 9 — Bolhas e dinâmica coletiva", "subtitle": "Formação, pico e colapso", "paragraphs": ["Bolhas seguem ciclos: fase de iniciação (informação/rumores), expansão (entrada de investidores motivados por ganhos), pico (euforia) e colapso (realização de perdas). A presença de noise traders e comportamento de manada acelera esses ciclos.", "Para contadores, entender esse ciclo ajuda a avaliar quando preços refletem euforia temporária versus alteração estrutural dos fundamentos, orientando decisões de mensuração e disclosure."], "bullets": ["Fases: iniciação → expansão → pico → colapso.", "Noise traders e manada aceleram ciclo."], "ref": "Behavioral finance literature"}, {"title": "Slide 10 — Experimentos relevantes para contabilidade", "subtitle": "O que aprendemos em laboratório", "paragraphs": ["Experimentos mostram que simples incentivos, informações parciais ou modos de interação (p.ex., anonimato em plataformas) podem alterar profundamente resultados agregados. Isso implica que ambientes institucionais moldam comportamento — regulamentos e práticas contábeis influenciam ações de gestores e auditores.", "Dessa forma, políticas de disclosure, regras de reconhecimento e incentivos organizacionais podem ser desenhados levando em conta como agentes respondem a sinais institucionais, reduzindo propensão a decisões oportunistas."], "bullets": ["Instituições moldam comportamento em laboratório.", "Desenho de políticas pode mitigar vieses."], "ref": "Experimental economics literature"}, {"title": "Slide 11 — Integração: teoria + prática na contabilidade", "subtitle": "Como unir os blocos em procedimentos operacionais", "paragraphs": ["Integração significa traduzir conceitos em políticas: checklist de julgamento, gatilhos quantitativos para impairment, documentação de premissas e protocolos de escalonamento. Essas medidas alinham prática contábil com evidência comportamental e reduzem variabilidade indevida nas decisões.", "Além disso, auditoria contínua de premissas e validação de modelos com backtesting constituem parte da governança que assegura decisões mais resilientes a ruído e vieses."], "bullets": ["Checklists; gatilhos; documentação.", "Backtesting e validação contínua."], "ref": "Burton & Shah; governance literature"}, {"title": "Slide 12 — Ética e responsabilidade profissional", "subtitle": "Decisão técnica e responsabilidade social", "paragraphs": ["Decisões contábeis em crise não são apenas técnicas; envolvem ética e responsabilidade com stakeholders. Transparência, comunicação clara e evitar manipulação de resultados devem pautar escolhas, mesmo quando pressões de mercado incentivam o adiamento de reconhecimentos.", "Auditores e conselhos de administração têm papel central em assegurar que decisões sejam fundamentadas, documentadas e comunicadas adequadamente, preservando confiança dos investidores."], "bullets": ["Transparência e responsabilidade.", "Papéis de auditores e conselhos."], "ref": "Professional ethics literature"}, {"title": "Slide 13 — Ferramentas avançadas: neuro‑insights aplicáveis", "subtitle": "Uso prático de insights neurocientíficos", "paragraphs": ["Insights neurocientíficos podem informar design de treinamento e processos: por exemplo, técnicas para reduzir impacto emocional (pausas deliberadas, checklists que forcem reflexão) ou estrutura de apresentações que minimizem framing negativo/positivo indevido.", "Programas de treinamento que simulam pressão de tempo e enfatizam processos deliberativos ajudam profissionais a reconhecer gatilhos emocionais e adotar práticas de decisão mais racionais."], "bullets": ["Pausas deliberadas; checklists reflexivos.", "Treinamentos que simulam pressão e revisões."], "ref": "Neuroeconomics applied"}, {"title": "Slide 14 — Política organizacional: desenho que mitiga vieses", "subtitle": "Incentivos, rotinas e cultura", "paragraphs": ["Desenho organizacional eficaz inclui alinhamento de incentivos de longo prazo, rotinas de revisão e canais anônimos para reportar pressões indevidas. A cultura que valoriza questionamento crítico e transparência reduz risco de decisões enviesadas.", "Além disso, a rotação de equipes e uso de especialistas externos para avaliações críticas são práticas eficientes para reduzir dependência de julgamentos únicos e mitigar efeitos de ilusão de habilidade."], "bullets": ["Incentivos de longo prazo; revisão independente.", "Rotação de equipes e especialistas externos."], "ref": "Corporate governance literature"}, {"title": "Slide 15 — Comunicação de decisões difíceis", "subtitle": "Como elaborar disclosure convincente", "paragraphs": ["Em contextos de incerteza elevada, a qualidade da comunicação é crucial. Disclosure claro, com premissas, cenários e sensibilidade, ajuda stakeholders a entender raciocínio por trás de decisões, reduzindo ruído interpretativo e especulação desinformada.", "Estruturar relatórios que destaquem gatilhos de reavaliação e prazos de monitoramento dá maior credibilidade e previsibilidade ao processo decisório."], "bullets": ["Disclosure: premissas, cenários e gatilhos.", "Credibilidade por transparência."], "ref": "Financial reporting guidance"}, {"title": "Slide 16 — Medindo sucessos e falhas de processo", "subtitle": "KPIs para decisão contábil e governança", "paragraphs": ["Indicadores de desempenho (KPIs) que medem qualidade do julgamento incluem: taxa de revisões posteriores a decisões, divergência entre projeções e realizações, tempo médio para reconhecimento de eventos adversos e índices de revisão por pares. Monitorar esses KPIs ajuda a ajustar processos e treinar equipes.", "A análise de performance histórica fornece sinais sobre tendência de vieses institucionais e eficácia das contramedidas implementadas."], "bullets": ["KPIs: revisões, divergências, tempo de reconhecimento.", "Usar dados históricos para ajustar processos."], "ref": "Governance and performance measurement literature"}, {"title": "Slide 17 — Checklist final para decisões em crise", "subtitle": "Passos obrigatórios antes de aprovar ajustes contábeis", "paragraphs": ["Checklist proposto: (1) confirmar evidência operacional e contratos; (2) avaliar sinais de mercado (liquidez, volatilidade, spreads); (3) testar sensibilidade das principais premissas; (4) obter revisão independente; (5) documentar e comunicar decisões com cenários e gatilhos de reavaliação.", "Seguir esse roteiro reduz probabilidade de decisões impulsivas e fornece trilha de auditoria robusta para justificar escolhas perante stakeholders e reguladores."], "bullets": ["Confirmar operacional; avaliar mercado; testar sensibilidade.", "Revisão independente; documentação e comunicação."], "ref": "Course synthesis"}, {"title": "Slide 18 — Planejamento de implementação em empresas", "subtitle": "Como implantar políticas e treinamentos", "paragraphs": ["Implementação prática requer roadmap: diagnóstico inicial de pontos de vulnerabilidade, definição de políticas e checklists, treinamento piloto, monitoramento de KPIs e ajustes contínuos. A implementação gradual com foco em áreas críticas aumenta aceitação e eficácia.", "Envolver líderes, auditoria interna e comitê de riscos desde o início facilita integração e sustentação das mudanças no tempo."], "bullets": ["Roadmap: diagnóstico → políticas → piloto → monitoramento.", "Envolvimento de liderança e auditoria interna."], "ref": "Change management literature"}, {"title": "Slide 19 — Ferramentas tecnológicas de apoio", "subtitle": "Automação, analytics e suporte à decisão", "paragraphs": ["Soluções tecnológicas — analytics, automação e dashboards — ajudam a padronizar dados, reduzir erro manual e destacar sinais relevantes de mercado. Ferramentas de visualização e alertas automáticos podem acionar processos de revisão quando gatilhos são atingidos.", "No entanto, tecnologia não substitui julgamento: é complemento que, corretamente desenhado, reduz fricções e melhora consistência das decisões."], "bullets": ["Analytics e dashboards para gatilhos.", "Tecnologia como suporte, não substituto, do julgamento."], "ref": "Tech for governance literature"}, {"title": "Slide 20 — Avaliação de impacto regulatório", "subtitle": "Como normas influenciam comportamento", "paragraphs": ["Normas contábeis e regulatórias moldam incentivos e podem alterar comportamentos. Por exemplo, requisitos de disclosure ou regras de capital afetam decisão de reconhecimento e provisões. Avaliar impacto regulatório é parte essencial do desenho de políticas internas.", "Ao propor mudanças, considera‑se não apenas técnica contábil, mas efeitos comportamentais que regras podem desencadear entre gestores e auditores."], "bullets": ["Normas moldam incentivos e comportamento.", "Avaliar efeitos colaterais de mudanças regulatórias."], "ref": "Accounting regulation literature"}, {"title": "Slide 21 — Medindo cultura e clima organizacional", "subtitle": "Avaliar predisposições a vieses", "paragraphs": ["Medir cultura é desafiante, mas pesquisas indicam que instrumentos como surveys de clima, análises de decisões passadas e entrevistas qualitativas fornecem sinais sobre predisposição a vieses. Identificar áreas com maior risco permite priorizar intervenções.", "Integrar resultados de avaliações de cultura com processos de treinamento e KPIs cria ciclo de melhoria contínua para mitigação de vieses."], "bullets": ["Surveys, análises históricas, entrevistas.", "Usar resultados para priorizar intervenções."], "ref": "Organizational culture literature"}, {"title": "Slide 22 — Síntese integrativa do curso", "subtitle": "Conectando teoria, evidência e prática", "paragraphs": ["Síntese: o curso mostrou que, embora modelos clássicos ofereçam referência, evidência empírica e insights comportamentais explicam desvios observados. A combinação de políticas, governança, validação empírica e treino operacional é a base para decisões contábeis mais sólidas.", "A prática eficaz requer instrumentos: checklists, gatilhos, validação de modelos, disclosure claro e cultura que incentive questionamento e revisão independente."], "bullets": ["Combinar teoria e prática.", "Ferramentas: checklists, gatilhos, validação."], "ref": "Course materials; Burton & Shah"}, {"title": "Slide 23 — Revisão final e lições-chave", "subtitle": "O que levar na prática profissional", "paragraphs": ["Lições-chave: reconhecer o ruído; diagnosticar vieses; aplicar processos formais de mitigação; usar evidência empírica para validar modelos; comunicar claramente premissas e incertezas. Essas práticas elevam a qualidade do julgamento e reduzem risco de decisões imprudentes.", "Incentive a adoção gradual das ferramentas apresentadas e medição contínua de eficácia das mudanças implementadas."], "bullets": ["Reconhecer ruído; mitigar vieses.", "Comunicar premissas e medir eficácia."], "ref": "Course synthesis"}, {"title": "Slide 24 — Encerramento do curso", "subtitle": "Mensagem final e agradecimentos", "paragraphs": ["Obrigado pela participação ativa. O objetivo do curso é fornecer estrutura teórica, evidência empírica e ferramentas práticas para melhorar julgamentos contábeis em presença de ruído e vieses. A mudança institucional exige persistência, mensuração e liderança.", "Desejo sucesso na aplicação dos conceitos e fico à disposição para eventuais materiais complementares, templates e suporte na implementação prática."], "bullets": ["Aplicar teoria com processos e governança.", "Persistir na medição e melhoria contínua."], "ref": "Course materials"}];
+        let index = 0;
+        const stage = document.getElementById('stage');
+        const counter = document.getElementById('counter');
+
+        function render(i) {
+            const s = slides[i];
+            let paras = '';
+            for (let p of s.paragraphs) {
+                paras += `<p>${p}</p>`;
+            }
+            let bullets = '';
+            if (s.bullets && s.bullets.length) {
+                bullets = '<ul>' + s.bullets.map(b => `<li>${b}</li>`).join('') + '</ul>';
+            }
+            stage.innerHTML = `<div class='slide' role='article'><div class='main'><div class='title'>${s.title}</div><div class='subtitle'>${s.subtitle || ''}</div><div class='content'>${paras}${bullets}</div><div class='notes'><h4>Referência rápida</h4><p>${s.ref || ''}</p></div></div></div>`;
+            counter.textContent = `Slide ${i + 1} / ${slides.length}`;
+            document.getElementById('prev').disabled = i === 0;
+            document.getElementById('next').disabled = i === slides.length - 1;
+            window.scrollTo(0, 0);
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                render(index);
+            }
+        });
+        document.getElementById('next').addEventListener('click', () => {
+            if (index < slides.length - 1) {
+                index++;
+                render(index);
+            }
+        });
+        render(0);
+    </script>
+</body>
+</html>

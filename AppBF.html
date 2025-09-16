@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudos de Contabilidade Comportamental</title>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/recharts@1.8.5/umd/Recharts.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 p-4 sm:p-8">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const App = () => {
+      const [currentBlock, setCurrentBlock] = useState(1);
+      const [studentName, setStudentName] = useState('');
+
+      const renderBlock = () => {
+        switch (currentBlock) {
+          case 1:
+            return <Block1 studentName={studentName} setStudentName={setStudentName} />;
+          case 2:
+            return <Block2 studentName={studentName} setStudentName={setStudentName} />;
+          case 3:
+            return <Block3 studentName={studentName} setStudentName={setStudentName} />;
+          case 4:
+            return <Block4 studentName={studentName} setStudentName={setStudentName} />;
+          default:
+            return <Block1 studentName={studentName} setStudentName={setStudentName} />;
+        }
+      };
+
+      return (
+        <div>
+          <header className="mb-8">
+            <h1 className="text-4xl font-extrabold text-center text-indigo-700">Estudos de Contabilidade Comportamental</h1>
+            <p className="text-center text-lg mt-2 text-gray-500">
+              Aplicação para execução de exercícios e estudos de caso.
+            </p>
+            <p className="text-center text-md mt-1 text-gray-500">Prof. Dr. César Valentim</p>
+          </header>
+
+          <nav className="flex flex-wrap justify-center mb-8 gap-2">
+            <button
+              onClick={() => setCurrentBlock(1)}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2 ${currentBlock === 1 ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50'}`}
+            >
+              <span role="img" aria-label="bloco 1">🏠</span>
+              Bloco 1
+            </button>
+            <button
+              onClick={() => setCurrentBlock(2)}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2 ${currentBlock === 2 ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50'}`}
+            >
+              <span role="img" aria-label="bloco 2">🧠</span>
+              Bloco 2
+            </button>
+            <button
+              onClick={() => setCurrentBlock(3)}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2 ${currentBlock === 3 ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50'}`}
+            >
+              <span role="img" aria-label="bloco 3">📈</span>
+              Bloco 3
+            </button>
+            <button
+              onClick={() => setCurrentBlock(4)}
+              className={`px-4 py-2 rounded-full font-semibold transition-colors duration-300 flex items-center gap-2 ${currentBlock === 4 ? 'bg-indigo-600 text-white shadow-lg' : 'bg-white text-indigo-600 border border-indigo-200 hover:bg-indigo-50'}`}
+            >
+              <span role="img" aria-label="bloco 4">🧩</span>
+              Bloco 4
+            </button>
+          </nav>
+
+          <main className="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-100">
+            {renderBlock()}
+          </main>
+        </div>
+      );
+    };
+
+    // Componente para o Bloco 1
+    const Block1 = ({ studentName, setStudentName }) => {
+      const [round, setRound] = useState(0);
+      const [currentPrice, setCurrentPrice] = useState(100);
+      const [nextPrice, setNextPrice] = useState('');
+      const [pricesLog, setPricesLog] = useState([{ name: 'Rodada 0', valor: 100 }]);
+      const [caseStudyResponses, setCaseStudyResponses] = useState('');
+      const [groupReflectionResponses, setGroupReflectionResponses] = useState('');
+      const [isSimulationStarted, setIsSimulationStarted] = useState(false);
+      const [isSimulationFinished, setIsSimulationFinished] = useState(false);
+      const [userType, setUserType] = useState(null);
+      const [userPricePath, setUserPricePath] = useState([]);
+
+      // Informações para os grupos
+      const rationalInfo = [
+        'Análise de mercado indica que o valor patrimonial da empresa está em R$100.',
+        'Novo relatório financeiro mostra crescimento de 5% no lucro líquido no último trimestre.',
+        'A empresa anunciou um novo produto, mas as projeções de receita se mantiveram conservadoras.',
+        'A concorrência enfrenta problemas de liquidez, o que pode fortalecer a posição da empresa no longo prazo.',
+        'Uma auditoria interna confirma que a empresa está com a saúde financeira estável.',
+        'Análise do fluxo de caixa demonstra que o valor de mercado atual está subvalorizado em 10%.',
+        'Novo balanço patrimonial mostra que a empresa tem ativos líquidos suficientes para cobrir suas dívidas.',
+        'O Índice de Preço/Lucro (P/L) da empresa está abaixo da média do setor, indicando que a ação pode estar barata.',
+        'Resultados de testes de estresse demonstram que a empresa resistiria a uma recessão.',
+        'O conselho de administração aprovou um plano de reestruturação que visa a otimização de custos e eficiência operacional.'
+      ];
+
+      const noiseInfo = [
+        'Rumor: A empresa vai anunciar uma nova parceria que pode dobrar o lucro!',
+        'Boato: Um grande fundo de investimento está se desfazendo da posição na empresa.',
+        'Notícia: Concorrência lança produto inovador que pode afetar as vendas.',
+        'Análise: O setor está em baixa, sinal de que a ação deve cair nos próximos dias.',
+        'Especialista em TV: O mercado está eufórico, é hora de comprar!',
+        'Rumores indicam que a empresa está sendo investigada por práticas contábeis duvidosas.',
+        'Um influenciador digital com milhões de seguidores fez um tweet negativo sobre o setor.',
+        'O CEO da empresa vendeu uma pequena parte de suas ações, gerando pânico no mercado.',
+        'Uma pesquisa de opinião mostra que a popularidade da marca caiu após um incidente isolado.',
+        'Um competidor menor declarou falência, o que foi interpretado como um sinal de fraqueza para todo o mercado.'
+      ];
+      
+      const rationalImpact = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]; // 1 para impacto positivo, 0 para neutro/pequeno, -1 para negativo
+      const noiseImpact = [1, -1, -1, -1, 1, -1, -1, -1, -1, -1]; // 1 para impacto positivo, -1 para negativo
+
+      const handleStartSimulation = () => {
+        setIsSimulationStarted(true);
+        setRound(1);
+      };
+
+      const handleNextRound = () => {
+        if (nextPrice === '' || isNaN(nextPrice)) {
+          alert('Por favor, insira um preço válido.');
+          return;
+        }
+
+        const newPrice = parseFloat(nextPrice);
+        
+        // Atualiza o estado para salvar a trajetória do preço
+        const newUserPricePath = [...userPricePath, newPrice];
+        setUserPricePath(newUserPricePath);
+        
+        const newPricesLog = [...pricesLog, { name: `Rodada ${round}`, valor: newPrice.toFixed(2) }];
+        setPricesLog(newPricesLog);
+        setCurrentPrice(newPrice);
+        setNextPrice('');
+
+        if (round < 10) {
+          setRound(round + 1);
+        } else {
+          let rationalScore = 0;
+          let noiseScore = 0;
+
+          // A rodada 0 é o preço inicial, então o loop começa a partir do primeiro preço inserido pelo usuário (índice 0)
+          for (let i = 0; i < 10; i++) {
+              const previousPrice = pricesLog[i].valor;
+              const currentPriceRound = newUserPricePath[i];
+              const priceDifference = currentPriceRound - previousPrice;
+              
+              // Converte a diferença de preço para uma direção (1=subiu, -1=desceu, 0=neutro)
+              const userDirection = priceDifference > 0 ? 1 : (priceDifference < 0 ? -1 : 0);
+
+              // Compara a direção do usuário com a direção racional e noise
+              if (userDirection === rationalImpact[i]) {
+                  rationalScore++;
+              }
+              if (userDirection === noiseImpact[i]) {
+                  noiseScore++;
+              }
+          }
+
+          if (rationalScore > noiseScore) {
+            setUserType('Investidor Racional');
+          } else if (noiseScore > rationalScore) {
+            setUserType('Noise Trader');
+          } else {
+            setUserType('Neutro');
+          }
+
+          setIsSimulationFinished(true);
+        }
+      };
+
+      const handleGenerateFile = () => {
+        const fileContent = `
+=====================================================
+Relatório de Respostas - Bloco 1
+=====================================================
+Nome do Aluno: ${studentName || 'Não Informado'}
+Data: ${new Date().toLocaleDateString('pt-BR')}
+
+-----------------------------------------------------
+Estudo de Caso: Crise de 2008
+-----------------------------------------------------
+Suas Respostas:
+${caseStudyResponses}
+
+-----------------------------------------------------
+Simulação de Mercado:
+-----------------------------------------------------
+Seu perfil de investidor foi: ${userType || 'Não finalizado'}
+Histórico de Preços:
+${pricesLog.map(p => `  ${p.name}: R$${p.valor}`).join('\n')}
+
+-----------------------------------------------------
+Reflexão em Grupo
+-----------------------------------------------------
+Suas Respostas:
+${groupReflectionResponses}
+        `.trim();
+
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `respostas_bloco_1_${studentName.replace(/\s/g, '_') || 'anonimo'}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      return (
+        <div>
+          <div className="mb-6">
+            <label htmlFor="student-name-1" className="block text-md font-medium text-gray-700 mb-2">Seu Nome:</label>
+            <input
+              id="student-name-1"
+              type="text"
+              value={studentName}
+              onChange={(e) => setStudentName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite seu nome completo"
+            />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">📌 Bloco 1 – Fundamentos e Ruído</h2>
+          <p className="text-gray-600 mb-6">
+            <strong className="text-indigo-600">Contexto:</strong> A bolha imobiliária nos EUA foi alimentada por crédito fácil, securitização de hipotecas e confiança excessiva nos modelos de risco. Quando as inadimplências cresceram, ativos lastreados em hipotecas perderam valor rapidamente, gerando crise global.
+          </p>
+
+          <section className="p-5 bg-gray-100 rounded-xl mb-6 shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Estudo de Caso: Crise de 2008</h3>
+            <p className="font-semibold text-gray-700 mt-4 mb-2">Atividade: Discussão em Grupo</p>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Como noise traders e efeito manada alimentaram a bolha?</li>
+              <li>Quais sinais de irracionalidade poderiam ter sido percebidos antes?</li>
+              <li>Que lições a contabilidade deveria ter aprendido com essa crise?</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para o Estudo de Caso</h3>
+            <textarea
+              value={caseStudyResponses}
+              onChange={(e) => setCaseStudyResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <section className="p-5 bg-indigo-50 rounded-xl shadow-md mt-6">
+            <h3 className="text-xl font-semibold text-gray-700 mb-4">Exercício Prático: Simulação de Mercado</h3>
+            
+            {!isSimulationStarted && (
+              <div className="text-center p-4">
+                <p className="text-lg font-medium mb-4">Clique para começar a simulação e testar suas decisões!</p>
+                <button
+                  onClick={handleStartSimulation}
+                  className="px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+                >
+                  Começar
+                </button>
+              </div>
+            )}
+
+            {isSimulationStarted && !isSimulationFinished && (
+              <>
+                <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-indigo-200 mb-4">
+                  <p className="text-lg font-medium text-gray-700">Preço Atual da Ação:</p>
+                  <p className="text-3xl font-bold text-indigo-600">R${currentPrice.toFixed(2)}</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                    <div className="p-4 bg-gray-200 rounded-xl">
+                        <p className="text-sm text-gray-600 italic">"{rationalInfo[round - 1]}"</p>
+                    </div>
+                    <div className="p-4 bg-gray-200 rounded-xl">
+                        <p className="text-sm text-gray-600 italic">"{noiseInfo[round - 1]}"</p>
+                    </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 mb-4 mt-4">
+                  <input
+                    type="number"
+                    value={nextPrice}
+                    onChange={(e) => setNextPrice(e.target.value)}
+                    className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Insira o novo preço"
+                  />
+                  <button
+                    onClick={handleNextRound}
+                    className="px-6 py-3 bg-green-500 text-white rounded-full font-bold shadow-md hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                  >
+                    <span role="img" aria-label="próxima rodada">🔄</span> Próxima Rodada ({round}/10)
+                  </button>
+                </div>
+              </>
+            )}
+
+            {isSimulationFinished && (
+                <div className="text-center p-4 bg-green-100 rounded-xl">
+                  <p className="font-bold text-lg text-green-700">Simulação Concluída!</p>
+                  <p className="font-bold text-lg text-green-800 mt-2">Sua trajetória se aproximou mais de um: <span className="text-indigo-600">{userType}</span></p>
+                </div>
+            )}
+          </section>
+          
+          {pricesLog.length > 1 && typeof Recharts !== 'undefined' && (
+            <section className="mt-8 p-5 bg-gray-100 rounded-xl shadow-inner">
+              <h3 className="text-xl font-semibold text-gray-700 mb-4">Registro de Preços</h3>
+              <Recharts.ResponsiveContainer width="100%" height={300}>
+                <Recharts.LineChart data={pricesLog} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                  <Recharts.CartesianGrid strokeDasharray="3 3" />
+                  <Recharts.XAxis dataKey="name" />
+                  <Recharts.YAxis domain={[80, 150]} />
+                  <Recharts.Tooltip />
+                  <Recharts.Line type="monotone" dataKey="valor" stroke="#4F46E5" strokeWidth={2} dot={true} />
+                </Recharts.LineChart>
+              </Recharts.ResponsiveContainer>
+            </section>
+          )}
+
+          <section className="mt-8 p-5 bg-gray-100 rounded-xl shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Reflexão em Grupo</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Como o ruído observado na simulação se conecta com decisões contábeis reais?</li>
+              <li>Se você fosse auditor, como lidaria com relatórios baseados em premissas influenciadas pelo “efeito manada”?</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Reflexão em Grupo</h3>
+            <textarea
+              value={groupReflectionResponses}
+              onChange={(e) => setGroupReflectionResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleGenerateFile}
+              className="px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Gerar Arquivo de Respostas
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    // Componente para o Bloco 2
+    const Block2 = ({ studentName, setStudentName }) => {
+      const [showResult, setShowResult] = useState(false);
+      const [caseStudyResponses, setCaseStudyResponses] = useState('');
+      const [groupReflectionResponses, setGroupReflectionResponses] = useState('');
+      const [gainsChoice, setGainsChoice] = useState('');
+      const [lossesChoice, setLossesChoice] = useState('');
+      const [resultMessage, setResultMessage] = useState('');
+
+      const handleShowResult = (e) => {
+        e.preventDefault();
+        setShowResult(true);
+
+        const combination = `${gainsChoice}${lossesChoice}`;
+        let message = '';
+        const lossAversionFeedback = "A combinação que demonstra aversão à perda, de acordo com a Teoria da Perspectiva, é **escolher a Opção A no cenário de ganhos e a Opção D no cenário de perdas**. Este comportamento ilustra a tendência de evitar riscos em ganhos certos, mas de assumir riscos para evitar perdas certas.";
+
+        switch (combination) {
+          case 'AC':
+            message = "Suas escolhas (A e C) indicam uma forte **aversão ao risco**. Você prefere a certeza de um ganho menor e a certeza de uma perda menor, evitando qualquer tipo de incerteza.";
+            break;
+          case 'BD':
+            message = "Suas escolhas (B e D) demonstram uma **propensão ao risco**. Você está disposto a aceitar a incerteza tanto para ganhar mais quanto para, potencialmente, evitar uma perda.";
+            break;
+          case 'AD':
+            message = "Suas escolhas (A e D) são um exemplo clássico da Teoria da Perspectiva. Você demonstra aversão ao risco em ganhos (preferindo a Opção A) e propensão ao risco em perdas (preferindo a Opção D). Este é o padrão mais comum e reflete o conceito de **Aversão à Perda**, onde a dor de uma perda é percebida como mais forte que o prazer de um ganho equivalente.";
+            break;
+          default:
+            message = "Suas escolhas indicam um **perfil misto**, que não se enquadra nos padrões clássicos. No contexto da Contabilidade Comportamental, essa combinação pode ser discutida como um perfil mais 'neutro' ou 'racional', onde a tomada de decisão é menos influenciada por vieses cognitivos comuns.";
+            break;
+        }
+
+        if (combination !== 'AD') {
+          message += `<br/><br/>${lossAversionFeedback}`;
+        }
+        
+        setResultMessage(message);
+      };
+
+      const handleGenerateFile = () => {
+        const fileContent = `
+=====================================================
+Relatório de Respostas - Bloco 2
+=====================================================
+Nome do Aluno: ${studentName || 'Não Informado'}
+Data: ${new Date().toLocaleDateString('pt-BR')}
+
+-----------------------------------------------------
+Estudo de Caso: Crise da Enron
+-----------------------------------------------------
+Suas Respostas:
+${caseStudyResponses}
+
+-----------------------------------------------------
+Questionário de Prospect Theory:
+-----------------------------------------------------
+Escolha no Cenário 1 (Ganhos): ${gainsChoice}
+Escolha no Cenário 2 (Perdas): ${lossesChoice}
+Análise: ${resultMessage.replace(/<br\/>/g, '\n')}
+
+-----------------------------------------------------
+Reflexão em Grupo
+-----------------------------------------------------
+Suas Respostas:
+${groupReflectionResponses}
+        `.trim();
+
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `respostas_bloco_2_${studentName.replace(/\s/g, '_') || 'anonimo'}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      return (
+        <div>
+          <div className="mb-6">
+            <label htmlFor="student-name-2" className="block text-md font-medium text-gray-700 mb-2">Seu Nome:</label>
+            <input
+              id="student-name-2"
+              type="text"
+              value={studentName}
+              onChange={(e) => setStudentName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite seu nome completo"
+            />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">📌 Bloco 2 – Prospect Theory, Heurísticas e Vieses</h2>
+          <p className="text-gray-600 mb-6">
+            <strong className="text-indigo-600">Contexto:</strong> A Enron manipulou demonstrações contábeis para ocultar dívidas, usando veículos de propósito específico. Analistas ignoraram sinais de alerta, reforçando o viés de confirmação.
+          </p>
+          
+          <section className="p-5 bg-gray-100 rounded-xl mb-6 shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Atividade: Perguntas aos Grupos</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Como heurísticas (representatividade, disponibilidade) influenciaram investidores e auditores?</li>
+              <li>Que vieses específicos permitiram que o problema crescesse tanto?</li>
+              <li>Como auditores poderiam ter mitigado esses vieses?</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para o Estudo de Caso</h3>
+            <textarea
+              value={caseStudyResponses}
+              onChange={(e) => setCaseStudyResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <section className="p-5 bg-indigo-50 rounded-xl shadow-md mt-6">
+            <h3 className="text-xl font-semibold text-gray-700 mb-4">Exercício Prático: Questionário de Prospect Theory</h3>
+            <form onSubmit={handleShowResult}>
+              <div className="mb-6">
+                <p className="font-semibold text-lg text-gray-700 mb-2">Cenário 1: Ganhos</p>
+                <p className="text-gray-600 mb-2">Escolha entre as opções:</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <label className="flex items-center p-4 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors flex-grow">
+                    <input type="radio" name="gains" value="A" className="mr-2" required onChange={(e) => setGainsChoice(e.target.value)} />
+                    <span className="text-gray-700">Opção A: ganhar R$900 com certeza.</span>
+                  </label>
+                  <label className="flex items-center p-4 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors flex-grow">
+                    <input type="radio" name="gains" value="B" className="mr-2" required onChange={(e) => setGainsChoice(e.target.value)} />
+                    <span className="text-gray-700">Opção B: 90% de chance de ganhar R$1000, 10% de não ganhar nada.</span>
+                  </label>
+                </div>
+              </div>
+              <div className="mb-6">
+                <p className="font-semibold text-lg text-gray-700 mb-2">Cenário 2: Perdas</p>
+                <p className="text-gray-600 mb-2">Escolha entre as opções:</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <label className="flex items-center p-4 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors flex-grow">
+                    <input type="radio" name="losses" value="C" className="mr-2" required onChange={(e) => setLossesChoice(e.target.value)} />
+                    <span className="text-gray-700">Opção C: perder R$900 com certeza.</span>
+                  </label>
+                  <label className="flex items-center p-4 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors flex-grow">
+                    <input type="radio" name="losses" value="D" className="mr-2" required onChange={(e) => setLossesChoice(e.target.value)} />
+                    <span className="text-gray-700">Opção D: 90% de chance de perder R$1000, 10% de não perder nada.</span>
+                  </label>
+                </div>
+              </div>
+              <button
+                type="submit"
+                className="w-full px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+              >
+                Ver Resultados
+              </button>
+            </form>
+
+            {showResult && (
+              <div className="mt-6 p-4 bg-gray-200 rounded-xl">
+                <h4 className="font-bold text-gray-800">Discussão dos Resultados:</h4>
+                <p className="mt-2 text-gray-700" dangerouslySetInnerHTML={{__html: resultMessage}}></p>
+              </div>
+            )}
+          </section>
+
+          <section className="mt-8 p-5 bg-gray-100 rounded-xl shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Reflexão em Grupo</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Como a aversão à perda afeta decisões contábeis como impairment ou provisões?</li>
+              <li>Vocês já observaram casos reais em que gestores evitaram reconhecer perdas óbvias?</li>
+            </ul>
+          </section>
+          
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Reflexão em Grupo</h3>
+            <textarea
+              value={groupReflectionResponses}
+              onChange={(e) => setGroupReflectionResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleGenerateFile}
+              className="px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Gerar Arquivo de Respostas
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    // Componente para o Bloco 3
+    const Block3 = ({ studentName, setStudentName }) => {
+      const [caseStudyResponses, setCaseStudyResponses] = useState('');
+      const [groupReflectionResponses, setGroupReflectionResponses] = useState('');
+      const [markType, setMarkType] = useState('momentum');
+      const [marks, setMarks] = useState([]);
+
+      // Dados simulados para representar as cotações mensais de fechamento da PETR4
+      const petroData = [
+        { name: 'Jan/19', valor: 25.5 }, { name: 'Fev/19', valor: 27.1 }, { name: 'Mar/19', valor: 26.8 },
+        { name: 'Abr/19', valor: 28.5 }, { name: 'Mai/19', valor: 27.9 }, { name: 'Jun/19', valor: 29.3 },
+        { name: 'Jul/19', valor: 31.0 }, { name: 'Ago/19', valor: 29.5 }, { name: 'Set/19', valor: 30.2 },
+        { name: 'Out/19', 'valor': 31.8}, {'name': 'Nov/19', 'valor': 28.7}, {'name': 'Dez/19', 'valor': 30.1},
+        {'name': 'Jan/20', 'valor': 28.9}, {'name': 'Fev/20', 'valor': 26.4}, {'name': 'Mar/20', 'valor': 14.2},
+        {'name': 'Abr/20', 'valor': 12.8}, {'name': 'Mai/20', 'valor': 15.6}, {'name': 'Jun/20', 'valor': 18.3},
+        {'name': 'Jul/20', 'valor': 20.1}, {'name': 'Ago/20', 'valor': 22.4}, {'name': 'Set/20', 'valor': 19.8},
+        {'name': 'Out/20', 'valor': 21.5}, {'name': 'Nov/20', 'valor': 24.2}, {'name': 'Dez/20', 'valor': 26.8},
+        {'name': 'Jan/21', 'valor': 29.3}, {'name': 'Fev/21', 'valor': 31.7}, {'name': 'Mar/21', 'valor': 28.9},
+        {'name': 'Abr/21', 'valor': 26.4}, {'name': 'Mai/21', 'valor': 24.8}, {'name': 'Jun/21', 'valor': 27.2},
+        {'name': 'Jul/21', 'valor': 29.6}, {'name': 'Ago/21', 'valor': 25.3}, {'name': 'Set/21', 'valor': 23.1},
+        {'name': 'Out/21', 'valor': 28.7}, {'name': 'Nov/21', 'valor': 32.4}, {'name': 'Dez/21', 'valor': 30.8}
+      ];
+
+      const handleChartClick = (e) => {
+        if (e.activePayload && e.activePayload.length > 0) {
+          const payload = e.activePayload[0].payload;
+          const newMark = {
+            name: payload.name,
+            valor: payload.valor,
+            type: markType,
+            color: markType === 'momentum' ? '#4F46E5' : '#EF4444'
+          };
+          setMarks([...marks, newMark]);
+        }
+      };
+
+      const renderCustomizedDot = (props) => {
+        const { cx, cy, payload } = props;
+        const mark = marks.find(m => m.name === payload.name);
+        if (mark) {
+          return <circle cx={cx} cy={cy} r={6} fill={mark.color} stroke="white" strokeWidth={2} />;
+        }
+        return null;
+      };
+
+      const handleGenerateFile = () => {
+        const fileContent = `
+=====================================================
+Relatório de Respostas - Bloco 3
+=====================================================
+Nome do Aluno: ${studentName || 'Não Informado'}
+Data: ${new Date().toLocaleDateString('pt-BR')}
+
+-----------------------------------------------------
+Atividade: Debate
+-----------------------------------------------------
+Suas Respostas:
+${caseStudyResponses}
+
+-----------------------------------------------------
+Análise do Gráfico:
+-----------------------------------------------------
+Marcações de Momentum e Reversão à Média:
+${marks.map(m => `  - ${m.type === 'momentum' ? 'Momentum' : 'Reversão'}: ${m.name} (Valor: R$${m.valor})`).join('\n')}
+
+-----------------------------------------------------
+Reflexão em Grupo
+-----------------------------------------------------
+Suas Respostas:
+${groupReflectionResponses}
+        `.trim();
+
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `respostas_bloco_3_${studentName.replace(/\s/g, '_') || 'anonimo'}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      return (
+        <div>
+          <div className="mb-6">
+            <label htmlFor="student-name-3" className="block text-md font-medium text-gray-700 mb-2">Seu Nome:</label>
+            <input
+              id="student-name-3"
+              type="text"
+              value={studentName}
+              onChange={(e) => setStudentName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite seu nome completo"
+            />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">📌 Bloco 3 – Séries Temporais e Efeitos de Mercado</h2>
+          <p className="text-gray-600 mb-6">
+            <strong className="text-indigo-600">Contexto:</strong> A ação da Petrobras (PETR4) teve quedas bruscas em momentos de crise, como a pandemia, e recuperou-se com o tempo.
+          </p>
+
+          <section className="p-5 bg-gray-100 rounded-xl mb-6 shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Atividade: Debate</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li><strong>Grupo 1:</strong> deve defender que a queda foi um <strong>overreaction</strong> do mercado.</li>
+              <li><strong>Grupo 2:</strong> deve defender que a recuperação foi um <strong>underreaction</strong> a novas informações.</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Atividade de Debate</h3>
+            <textarea
+              value={caseStudyResponses}
+              onChange={(e) => setCaseStudyResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <section className="p-5 bg-indigo-50 rounded-xl shadow-md mt-6">
+            <h3 className="text-xl font-semibold text-gray-700 mb-4">Exercício Prático: Séries da PETR4</h3>
+            <p className="text-gray-700 mb-4">
+              Clique no gráfico abaixo para marcar os períodos de **momentum** e **reversão à média**.
+            </p>
+            <div className="flex gap-4 mb-4">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="markType"
+                  value="momentum"
+                  checked={markType === 'momentum'}
+                  onChange={() => setMarkType('momentum')}
+                  className="mr-2"
+                />
+                Momentum
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="markType"
+                  value="reversao"
+                  checked={markType === 'reversao'}
+                  onChange={() => setMarkType('reversao')}
+                  className="mr-2"
+                />
+                Reversão à Média
+              </label>
+            </div>
+
+            {typeof Recharts !== 'undefined' && (
+              <Recharts.ResponsiveContainer width="100%" height={300}>
+                <Recharts.LineChart data={petroData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} onClick={handleChartClick}>
+                  <Recharts.CartesianGrid strokeDasharray="3 3" />
+                  <Recharts.XAxis dataKey="name" />
+                  <Recharts.YAxis />
+                  <Recharts.Tooltip />
+                  <Recharts.Line type="monotone" dataKey="valor" stroke="#4F46E5" strokeWidth={2} name="Cotação PETR4" dot={renderCustomizedDot} />
+                </Recharts.LineChart>
+              </Recharts.ResponsiveContainer>
+            )}
+            <div className="mt-4">
+              <h4 className="font-semibold text-gray-700">Marcações Feitas:</h4>
+              <ul className="list-disc list-inside space-y-1">
+                {marks.length === 0 ? (
+                  <li className="text-gray-500">Nenhuma marcação feita ainda.</li>
+                ) : (
+                  marks.map((mark, index) => (
+                    <li key={index} className="text-gray-700">
+                      <span className="inline-block w-3 h-3 rounded-full mr-2" style={{ backgroundColor: mark.color }}></span>
+                      **{mark.type === 'momentum' ? 'Momentum' : 'Reversão'}** em {mark.name} (R${mark.valor})
+                    </li>
+                  ))
+                )}
+              </ul>
+            </div>
+          </section>
+
+          <section className="mt-8 p-5 bg-gray-100 rounded-xl shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Reflexão em Grupo</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Como analistas contábeis podem separar “ciclos de mercado” de fundamentos reais?</li>
+              <li>É melhor ser conservador e reconhecer impairment cedo ou aguardar estabilização?</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Reflexão em Grupo</h3>
+            <textarea
+              value={groupReflectionResponses}
+              onChange={(e) => setGroupReflectionResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleGenerateFile}
+              className="px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Gerar Arquivo de Respostas
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    // Componente para o Bloco 4
+    const Block4 = ({ studentName, setStudentName }) => {
+      const [player1Offer, setPlayer1Offer] = useState('');
+      const [gameResult, setGameResult] = useState('');
+      const [showPlayer2, setShowPlayer2] = useState(false);
+      const [showFinalResult, setShowFinalResult] = useState(false);
+      const [caseStudyResponses, setCaseStudyResponses] = useState('');
+      const [groupReflectionResponses, setGroupReflectionResponses] = useState('');
+
+      const handleOfferSubmit = (e) => {
+        e.preventDefault();
+        const offer = parseFloat(player1Offer);
+        if (isNaN(offer) || offer < 0 || offer > 100) {
+          alert('Oferta inválida. Por favor, insira um valor entre 0 e 100.');
+          return;
+        }
+        setGameResult(`O Jogador 1 oferece R$${offer.toFixed(2)} ao Jogador 2.`);
+        setShowPlayer2(true);
+      };
+
+      const handleDecisionSubmit = (decision) => {
+        const offer = parseFloat(player1Offer);
+        if (decision === 'accept') {
+          setGameResult(`Ofertante (Jogador 1) ganha R$${(100 - offer).toFixed(2)} e o Recebedor (Jogador 2) ganha R$${offer.toFixed(2)}.`);
+        } else {
+          setGameResult(`A oferta foi rejeitada. Ambos os jogadores perdem tudo.`);
+        }
+        setShowFinalResult(true);
+      };
+
+      const handleGenerateFile = () => {
+        const fileContent = `
+=====================================================
+Relatório de Respostas - Bloco 4
+=====================================================
+Nome do Aluno: ${studentName || 'Não Informado'}
+Data: ${new Date().toLocaleDateString('pt-BR')}
+
+-----------------------------------------------------
+Atividade: Papéis
+-----------------------------------------------------
+Suas Respostas:
+${caseStudyResponses}
+
+-----------------------------------------------------
+Exercício de Neuroeconomia: Jogo do Ultimato
+-----------------------------------------------------
+${gameResult}
+
+-----------------------------------------------------
+Reflexão Final em Grupo
+-----------------------------------------------------
+Suas Respostas:
+${groupReflectionResponses}
+        `.trim();
+
+        const blob = new Blob([fileContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `respostas_bloco_4_${studentName.replace(/\s/g, '_') || 'anonimo'}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      return (
+        <div>
+          <div className="mb-6">
+            <label htmlFor="student-name-4" className="block text-md font-medium text-gray-700 mb-2">Seu Nome:</label>
+            <input
+              id="student-name-4"
+              type="text"
+              value={studentName}
+              onChange={(e) => setStudentName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Digite seu nome completo"
+            />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-700 mb-4">📌 Bloco 4 – Integração, Neuroeconomia e Casos Práticos</h2>
+          <p className="text-gray-600 mb-6">
+            <strong className="text-indigo-600">Contexto:</strong> Uma empresa fictícia (X S.A.) tem queda de 40% nas ações após rumores de problemas de liquidez. O conselho precisa decidir se reconhece impairment em ativos estratégicos.
+          </p>
+          
+          <section className="p-5 bg-gray-100 rounded-xl mb-6 shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Atividade: Papéis</h3>
+            <p className="text-gray-600 mb-2">Divida a turma em 3 grupos: Gestores, Auditores e Investidores.</p>
+            <p className="text-gray-600">Cada grupo deve tomar uma decisão sobre o reconhecimento de impairment e justificar.</p>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Atividade de Papéis</h3>
+            <textarea
+              value={caseStudyResponses}
+              onChange={(e) => setCaseStudyResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <section className="p-5 bg-indigo-50 rounded-xl shadow-md mt-6">
+            <h3 className="text-xl font-semibold text-gray-700 mb-4">Exercício de Neuroeconomia: Jogo do Ultimato</h3>
+            
+            <form onSubmit={handleOfferSubmit} className="mb-4">
+              <p className="font-semibold text-gray-700 mb-2">Jogador 1: Você recebeu R$100. Quanto você oferece ao Jogador 2?</p>
+              <div className="flex gap-4">
+                <input
+                  type="number"
+                  value={player1Offer}
+                  onChange={(e) => setPlayer1Offer(e.target.value)}
+                  className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  min="0"
+                  max="100"
+                  required
+                  disabled={showPlayer2}
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-indigo-500 text-white rounded-full font-semibold hover:bg-indigo-700 transition-colors"
+                  disabled={showPlayer2}
+                >
+                  Fazer Oferta
+                </button>
+              </div>
+            </form>
+
+            {showPlayer2 && !showFinalResult && (
+              <div className="mt-4">
+                <div className="p-4 bg-gray-200 rounded-xl mb-4">
+                  <p className="font-semibold text-gray-800">{gameResult}</p>
+                </div>
+                <p className="text-sm font-medium text-gray-700 mb-2">Jogador 2: Você aceita ou rejeita esta oferta?</p>
+                <div className="flex gap-4">
+                  <button
+                    onClick={() => handleDecisionSubmit('accept')}
+                    className="flex-1 px-4 py-2 bg-green-500 text-white rounded-full font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    Aceitar
+                  </button>
+                  <button
+                    onClick={() => handleDecisionSubmit('reject')}
+                    className="flex-1 px-4 py-2 bg-red-500 text-white rounded-full font-semibold hover:bg-red-700 transition-colors"
+                  >
+                    Rejeitar
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {showFinalResult && (
+              <div className="mt-6 p-4 bg-gray-200 rounded-xl">
+                <p className="font-semibold text-gray-800">{gameResult}</p>
+                <p className="mt-2 text-gray-700">
+                  <strong className="text-indigo-600">Intenção do Jogo:</strong> O resultado esperado é que ofertas consideradas injustas (geralmente abaixo de 30%) são rejeitadas por indignação, mesmo que isso signifique uma perda financeira para o jogador que rejeita. Isso demonstra como a emoção (senso de justiça) pode superar a racionalidade econômica na tomada de decisões.
+                </p>
+              </div>
+            )}
+          </section>
+
+          <section className="mt-8 p-5 bg-gray-100 rounded-xl shadow-inner">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Reflexão Final em Grupo</h3>
+            <ul className="list-disc list-inside space-y-1 text-gray-600">
+              <li>Que vieses foram mais evidentes ao longo do curso?</li>
+              <li>Como vocês aplicarão esse conhecimento na prática contábil e de auditoria?</li>
+              <li>Se pudessem criar um checklist anti-vieses, quais itens incluiriam?</li>
+            </ul>
+          </section>
+
+          <section className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Suas Respostas para a Reflexão Final</h3>
+            <textarea
+              value={groupReflectionResponses}
+              onChange={(e) => setGroupReflectionResponses(e.target.value)}
+              className="w-full h-40 p-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+              placeholder="Escreva aqui suas respostas e reflexões..."
+            />
+          </section>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleGenerateFile}
+              className="px-6 py-3 bg-indigo-500 text-white rounded-full font-bold shadow-md hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Gerar Arquivo de Respostas
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>

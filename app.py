@@ -53,8 +53,7 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>📊 Julgamento e Tomada de Decisão em Contabilidade</h1>
-    <p>Curso de Behavioral Finance aplicado à Contabilidade</p>
-</div>
+    </div>
 """, unsafe_allow_html=True)
 
 # Dicionário com informações das aulas

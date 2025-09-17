@@ -1,1 +1,457 @@
-<!doctype html><html lang='pt-br'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Behavioral Finance — Bloco 1 (Completo)</title><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'><style>:root{--bg:#ffffff;--paper:#0b1723;--muted:#333;--accent:#0b5cff;--card:#ffffff;--note:#f7fafc}html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--paper)}.frame{max-width:1100px;margin:12px auto;background:var(--card);border-radius:8px;padding:12px 18px 18px;box-shadow:0 8px 20px rgba(0,0,0,.04)}header{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #eef2ff}header h1{margin:0;font-size:18px}.stage{margin-top:12px;display:flex;flex-direction:column}.slide{display:flex;gap:18px;padding:18px;border-radius:8px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid #eef6ff;overflow:auto}.main{flex:1;min-width:0}.title{font-size:22px;font-weight:700;margin-bottom:6px}.subtitle{font-size:13px;color:var(--muted);margin-bottom:10px}.content p{font-size:15px;line-height:1.6;color:var(--muted);margin:8px 0}.content ul{font-size:15px;line-height:1.6;color:var(--muted);margin:8px 0 16px 20px}.aside{width:320px;flex-shrink:0;background:var(--note);padding:12px;border-radius:8px;border-left:3px solid var(--accent);box-shadow:0 6px 18px rgba(11,92,255,.04)}.aside h4{margin:0;font-size:13px;color:var(--accent)}.aside p{font-size:13px;color:var(--muted);line-height:1.45;margin-top:8px}.notes{margin-top:10px;background:#fbfdff;padding:10px;border-radius:6px;border:1px solid #eef6ff;font-size:13px;color:var(--muted)}.nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px}button{background:var(--accent);border:none;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer}@media (max-width:900px){.aside{display:none}.stage{}.title{font-size:20px}.content p{font-size:14px}}</style></head><body><div class='frame'><header><h1>Behavioral Finance — Bloco 1 (Completo)</h1></header><div class='stage' id='stage'></div><div class='nav'><div><strong id='counter'>Slide 1 / 25</strong></div><div style='display:flex;gap:8px'><button id='prev' disabled>Anterior</button><button id='next'>Próximo</button></div></div></div><script>const slides = [{"title": "Slide 1 — Abertura", "subtitle": "Curso: Julgamento e Tomada de Decisão em Contabilidade — Bloco 1: Fundamentos e Ruído", "paragraphs": ["Bem-vindos ao Bloco 1 do curso. Nesta unidade vamos estabelecer a base conceitual necessária para entender como mercados, informação e comportamento humano interagem e influenciam julgamentos contábeis. O enfoque é teórico-prático: compreender modelos clássicos, críticas empíricas e implicações para mensuração e disclosure.", "O material foi organizado para fornecer notas de aula densas: cada slide apresenta explicações detalhadas, sínteses e referências rápidas para facilitar o estudo autônomo. Ao final do bloco, espera-se que o aluno reconheça o papel do ruído, dos vieses e dos limites institucionais na formação de preços."], "bullets": ["Objetivo: entender EMH, ruído e implicações contábeis.", "Formato: leitura orientada + discussão em aula."], "ref": "Burton & Shah (2013), Cap. 1"}, {"title": "Slide 2 — Agenda do Bloco 1", "subtitle": "O que vamos cobrir", "paragraphs": ["Este bloco percorre cinco eixos principais: (1) Hipótese do Mercado Eficiente (EMH) e o modelo risco–retorno clássico; (2) críticas empíricas à eficiência; (3) o aparecimento das finanças comportamentais; (4) noise traders, herd behavior e limites à arbitragem; e (5) aplicações diretas para julgamentos contábeis, como impairment e provisões.", "A sequência busca construir progressivamente: primeiro estabelecer o referencial teórico, depois mostrar evidência empírica que o questiona e, por fim, relacionar esses insights à prática contábil e de auditoria."], "bullets": ["EMH e modelo clássico.", "Críticas e anomalias.", "Behavioral Finance e ruído.", "Aplicações contábeis."], "ref": "Burton & Shah, Cap.1–2"}, {"title": "Slide 3 — O que é a EMH?", "subtitle": "Eugene Fama (1970)", "paragraphs": ["A Efficient Market Hypothesis (EMH) foi formalizada por Eugene Fama em 1970. A proposição central é que os preços dos ativos refletem, de forma rápida e fiável, a informação disponível, de modo que não é possível obter ganhos esperados acima do mercado de forma sistemática sem assumir risco adicional.", "Fama distinguiu três formas de eficiência: a forma fraca (sinais passados já estão nos preços), a semi‑forte (toda informação pública é imediatamente incorporada) e a forma forte (inclusive informação privada). Essas categorias orientaram vasta pesquisa empírica nas décadas posteriores."], "bullets": ["Forma fraca: histórico.", "Forma semi‑forte: informação pública.", "Forma forte: informação privada."], "ref": "Fama (1970)"}, {"title": "Slide 4 — Implicações da EMH", "subtitle": "Random walk e gestão passiva", "paragraphs": ["Se os preços incorporam informação de forma eficiente, então os movimentos futuros dos preços são essencialmente imprevisíveis — um comportamento denominado random walk. Na prática, isso sustentou a ampla adoção da gestão passiva e de fundos indexados, dado o custo e a dificuldade de superar o benchmark.", "Para contabilidade, a suposição de eficiência implica confiar em sinais de mercado ao avaliar ativos a valor justo. Contudo, a realidade operacional (fricções, custos e ruído) já coloca limitações a essa confiança."], "bullets": ["Random walk e imprevisibilidade.", "Fundamentação da gestão passiva."], "ref": "Burton & Shah, Cap.2"}, {"title": "Slide 5 — Críticas empíricas à EMH", "subtitle": "Volatilidade, anomalias e crises", "paragraphs": ["A literatura empírica apresentou desafios importantes à EMH. Shiller (1981) demonstrou que a volatilidade dos preços muitas vezes excede o que seria justificável pelos fundamentos econômicos, sugerindo que fatores comportamentais ou ruído contribuem para movimentos excessivos.", "Além disso, anomalias recorrentes — como efeito janeiro, momentum e reversões — e eventos extremos (crashs de 1987, bolha dot‑com, crise de 2008) mostram que mercados podem se afastar persistentemente de valores fundamentais, abrindo espaço para explicações alternativas."], "bullets": ["Volatilidade excessiva (Shiller).", "Anomalias: momentum, reversões, efeitos sazonais.", "Crises que desafiam eficiência."], "ref": "Shiller (1981); DeBondt & Thaler (1985)"}, {"title": "Slide 6 — Homo economicus", "subtitle": "Modelo clássico e racionalidade limitada", "paragraphs": ["O modelo de Homo economicus pressupõe agentes racionais, com preferências estáveis e capacidade de maximizar utilidade. Esse paradigma embasa teorias como Markowitz e CAPM, que explicam preço e retorno a partir de trade‑offs entre risco e retorno.", "Herbert Simon introduziu a noção de racionalidade limitada: agentes usam heurísticas e têm capacidade cognitiva restrita. Esse conceito é crucial para entender por que a hipótese da completa racionalidade pode falhar na explicação do comportamento real dos mercados."], "bullets": ["Homo economicus: agente racional ideal.", "Racionalidade limitada: Herbert Simon."], "ref": "Simon (1947); Markowitz (1952)"}, {"title": "Slide 7 — Precursores históricos", "subtitle": "Keynes, Graham & Dodd", "paragraphs": ["Antes do desenvolvimento formal da Behavioral Finance, pensadores como Keynes já apontavam para forças psicológicas no comportamento econômico — os 'espíritos animais' que influenciam confiança e investimento. Essas ideias anteciparam, em termos qualitativos, muitos achados posteriores.", "No campo prático, Benjamin Graham e David Dodd (1934) enfatizaram análise fundamentalista e margem de segurança, reconhecendo implicitamente que preços podem divergir do valor intrínseco por longos períodos."], "bullets": ["Keynes: espíritos animais.", "Graham & Dodd: valor e margem de segurança."], "ref": "Keynes (1936); Graham & Dodd (1934)"}, {"title": "Slide 8 — Nascimento da Behavioral Finance", "subtitle": "Kahneman & Tversky, década de 1970", "paragraphs": ["A Behavioral Finance ganhou corpo quando estudos de psicologia, liderados por Kahneman & Tversky, forneceram evidência de heurísticas e vieses que sistematicamente desviam julgamentos humanos da racionalidade esperada. A Prospect Theory (1979) foi um marco, descrevendo como indivíduos avaliam ganhos e perdas relativamente a pontos de referência.", "A partir daí, economistas e pesquisadores financeiros (Thaler, Barberis, Shleifer) integraram esses insights, explicando anomalias de mercado por via comportamental e mostrando que modelos puramente racionais são insuficientes."], "bullets": ["Prospect Theory — Kahneman & Tversky (1979).", "Integração psicologia + finanças."], "ref": "Kahneman & Tversky (1979); Thaler"}, {"title": "Slide 9 — Behavioral Finance na prática", "subtitle": "Impacto no comportamento de investidores e gestores", "paragraphs": ["Na prática, investidores institucionais e individuais tomam decisões influenciadas por emoção, excesso de confiança e heurísticas. Gestores podem superestimar suas competências e ajustar avaliações por vieses cognitivos; analistas podem seguir narrativas dominantes em vez de dados fundamentais.", "Contadores e auditores não estão imunes: julgamentos sobre provisões, expectativas de fluxo e reconhecimento de impairment podem ser contaminados por ancoragem, aversão à perda e outras distorções."], "bullets": ["Excesso de confiança; ancoragem.", "Efeitos sobre valuation e decisões contábeis."], "ref": "Burton & Shah, Cap.3"}, {"title": "Slide 10 — Noise traders", "subtitle": "Definição e effects (De Long et al., 1990)", "paragraphs": ["Noise traders são participantes do mercado cujas decisões não se baseiam em fundamentos mas em ruído — rumores, manchetes, sinais errôneos. De Long et al. (1990) mostraram que esses agentes, quando numerosos, podem deslocar preços e aumentar volatilidade.", "Por tornar o preço menos informativo sobre o valor fundamental, noise traders dificultam a vida de arbitradores e auditores que dependem de sinais de mercado para estimativas."], "bullets": ["Decisões baseadas em ruído.", "Aumento de volatilidade e desvios."], "ref": "De Long et al. (1990)"}, {"title": "Slide 11 — Herd behavior", "subtitle": "Fatores que geram manada", "paragraphs": ["Herd behavior surge por sinalização, pressão social, medo de perder oportunidades (Fear of Missing out - FOMO) ou porque seguir o grupo pode ser a estratégia de menor custo cognitivo. Esse fenômeno explica parte da formação de bolhas e das correções abruptas posteriores.", "Entender seus mecanismos ajuda contadores a identificar momentos em que premissas de mercado são movidas por narrativa em vez de fundamentos."], "bullets": ["Sinalização e FOMO.", "Formação de bolhas por imitação."], "ref": "Bikhchandani et al. (1992)"}, {"title": "Slide 12 — Limites à arbitragem (detalhes)", "subtitle": "Risco de sincronização, custos e restrições", "paragraphs": ["A arbitragem teórica pressupõe que agentes racionais explorarão e corrigirão desvios de preço. Na prática, custos de transação, restrições de capital e risco de sincronização (manter posição perdedora até que preço corrija) limitam essa ação. Investidores podem ser forçados a liquidar antes da correção, impondo perdas reais.", "Esses limites explicam por que desvios comportamentais podem persistir: o mercado nem sempre se corrige por arbitragem imediata, e a dinâmica de risco-liquidez pode reforçar a discrepância entre preço e fundamento."], "bullets": ["Custos de transação.", "Risco de sincronização.", "Pressões de liquidez."], "ref": "Shleifer & Vishny (1997)"}, {"title": "Slide 13 — Análise técnica: crítica e função", "subtitle": "Por que pode ser ruído e quando é útil", "paragraphs": ["A análise técnica tenta identificar padrões em séries históricas de preço. Do ponto de vista acadêmico, muitos padrões são inconsistentes e podem refletir ruído. Contudo, no nível operacional, esses sinais podem ser úteis para timing e gestão de risco — não necessariamente como medida de valor intrínseco.", "Portanto, cabe ao contador distinguir entre informação de sentimento (útil para gestão de risco de mercado) e sinais que realmente informam sobre valor econômico subjacente."], "bullets": ["Técnica = sentimento/timing.", "Cautela ao usar para valuation."], "ref": "Burton & Shah"}, {"title": "Slide 14 — Ruído e persistência de desvios", "subtitle": "Como e por que desvios persistem", "paragraphs": ["Ruído coletivo e vieses individuais podem produzir desvios de preço que se mantêm por longos períodos, sobretudo quando não há arbitragem suficiente. A persistência cria cenários onde decisões baseadas em preço (p.ex. impairment) podem ser equivocadas se tomadas sem contestação independente.", "A implicação é que profissionais contábeis devem aplicar critérios que filtrem ruído e priorizem evidência objetiva, usando múltiplas fontes e métodos."], "bullets": ["Desvios persistentes.", "Necessidade de filtragem de ruído."], "ref": "Burton & Shah"}, {"title": "Slide 15 — Impairment: julgamentos e vieses", "subtitle": "Reconhecimento de perdas e aversão à perda", "paragraphs": ["A aversão à perda, documentada na literatura comportamental, pode levar gestores a postergar reconhecimentos de impairment para evitar impactos nos resultados e na remuneração. Isso cria risco de informação enganosa e de medidas tardias que não refletem a real deterioração do valor dos ativos.", "Auditores devem buscar evidência objetiva: comparar premissas internas com benchmarks e exigir cenários adversos e sensibilidade nas projeções."], "bullets": ["Aversão à perda influencia reconhecimento.", "Teste: cenários e benchmarks."], "ref": "Prospect Theory; Burton & Shah"}, {"title": "Slide 16 — Provisões e contingências", "subtitle": "Conservadorismo, framing e timing", "paragraphs": ["A decisão de reconhecer provisões envolve avaliações de probabilidade e estimação do montante esperado. Framing e vieses podem levar a reconhecimento tardio ou excessivo, dependendo de incentivos e pressão por resultados. A clareza de política contábil e critérios quantitativos mitigam subjetividade.", "A prática recomendada inclui documentação robusta, revisão independente e apresentação clara nas notas explicativas para reduzir ambiguidades interpretativas."], "bullets": ["Framing altera decisões de provisão.", "Políticas claras e revisão independente."], "ref": "Burton & Shah"}, {"title": "Slide 17 — Valuation: inputs e contaminação", "subtitle": "Como mercado contamina premissas", "paragraphs": ["Inputs de valuation (taxa de desconto, crescimento, volatilidade) são vulneráveis a sinais de mercado. Quando emoções e ruído prevalecem, essas premissas podem tornar-se irreais, produzindo estimativas enviesadas. O analista deve usar múltiplas técnicas e justificar escolhas com dados empíricos.", "A documentação de suposições, a análise de sensibilidade e a utilização de intervalos (em vez de um único número) auxiliam na comunicação da incerteza e reduzem o risco de decisões invasivas baseadas em únicas premissas de mercado."], "bullets": ["Inputs podem estar enviesados.", "Usar múltiplos métodos e sensibilidade."], "ref": "Burton & Shah"}, {"title": "Slide 18 — Auditoria e revisão de julgamentos", "subtitle": "Procedimentos para reduzir viés", "paragraphs": ["O trabalho de auditoria deve contemplar procedimentos específicos para detectar e mitigar vieses: revisão por pares, análise de plausibilidade, uso de especialistas quando necessário e testes de sensibilidade para premissas críticas. Exigir documentação robusta é essencial.", "Além disso, a independência do auditor e controles de governança interna reduzem o risco de conivência com julgamentos influenciados por pressões de mercado."], "bullets": ["Revisão por pares e especialistas.", "Testes de sensibilidade e plausibilidade."], "ref": "Audit practice literature"}, {"title": "Slide 19 — Crise de 2008: implicações contábeis", "subtitle": "Modelos, alavancagem e falhas de estimação", "paragraphs": ["A crise de 2008 evidenciou fragilidades em modelos de risco, excessiva dependência de ratings e complexidade de instrumentos securitizados. As perdas foram amplificadas por alavancagem e por avaliações que não refletiam cenários adversos plausíveis.", "Para contadores, a lição foi reforçar testes de estresse, revisão de modelos e maior rigor na divulgação das premissas e limitações dos modelos utilizados."], "bullets": ["Modelos inadequados e alavancagem.", "Importância de testes de estresse e disclosure."], "ref": "Post‑crisis literature"}, {"title": "Slide 20 — Meme stocks e ruído recente", "subtitle": "Coordenação, redes sociais e volatilidade", "paragraphs": ["Eventos de 2021 mostraram que coordenação em redes sociais pode elevar preços de ações de forma abrupta, criando picos de volatilidade e desafios para posições marcadas a mercado. Esses eventos demonstram como informação informal pode ter impacto real nos preços.", "Para a contabilidade, tais episódios ressaltam cautela ao considerar preços de mercado como evidência única de valor, especialmente quando há sinais de manipulação ou coordenação não fundamentada."], "bullets": ["Coordenação via redes sociais.", "Cautela com preços em momentos de ruído."], "ref": "Contemporary reports (2021)"}, {"title": "Slide 21 — B3 em 2020: choque e recuperação", "subtitle": "Pandemia, liquidez e premissas", "paragraphs": ["A volatilidade de 2020 ilustra reação rápida a choque exógeno (pandemia) seguida de recuperação, em parte impulsionada por estímulos econômicos e liquidez abundante. Esse movimento desafia quem tenta inferir permanentemente mudanças de valor a partir de movimentos de preço de curto prazo.", "Em cenários assim, contadores devem privilegiar análises de cenários e documentar transições temporárias vs. mudanças estruturais para justificar decisões de mensuração."], "bullets": ["Choque exógeno e efeitos de liquidez.", "Importância de cenários e documentação."], "ref": "Market analyses (2020)"}, {"title": "Slide 22 — Governança, incentivos e disclosure", "subtitle": "Como reduzir oportunidades de viés", "paragraphs": ["Elementos de governança (comitês, políticas de remuneração alinhadas a horizontes de longo prazo, auditoria independente) reduzem pressões que incentivam práticas contábeis oportunistas. Disclosure claro e transparente também reduz assimetria de informação e facilita a avaliação por stakeholders.", "Políticas internas que obrigam revisão independente de premissas críticas e limites para mudanças de estimativas sem justificativa suportada ajudam a mitigar riscos comportamentais."], "bullets": ["Comitês e revisão independente.", "Remuneração alinhada a longo prazo."], "ref": "Corporate governance literature"}, {"title": "Slide 23 — Ferramentas práticas para mitigação", "subtitle": "Checklists, documentação e sensibilidade", "paragraphs": ["Ferramentas simples e eficazes incluem checklists de julgamento, documentação padronizada de premissas, uso obrigatório de cenários adversos e análise de sensibilidade. Essas práticas tornam o processo mais transparente e permitem que revisões posteriores entendam a lógica por trás das escolhas.", "A implementação deve ser combinada com treinamento e cultura organizacional que valorize questionamento crítico e revisão independente."], "bullets": ["Checklists e documentação.", "Cenários e análise de sensibilidade."], "ref": "Practical guidance literature"}, {"title": "Slide 24 — Síntese: orientações práticas", "subtitle": "Resumo operacional", "paragraphs": ["Em síntese, reconheça que preços de mercado são sinais úteis, mas por vezes contaminados por ruído. Em julgamentos contábeis, privilegie evidência múltipla, documentação e políticas claras para reduzir subjetividade. Use sensibilidade e cenários para comunicar incerteza.", "Isso implica que profissionais devem combinar análise quantitativa com julgamento crítico e governança eficaz para melhorar a qualidade das decisões contábeis."], "bullets": ["Evidência múltipla e documentação.", "Sensibilidade e cenários."], "ref": "Burton & Shah"}, {"title": "Slide 25 — Encerramento do Bloco 1", "subtitle": "Mensagem final e próximos passos", "paragraphs": ["Encerramos o bloco com a ideia central: identificar e reconhecer o ruído nos mercados é condição necessária, embora não suficiente, para melhorar julgamentos contábeis. A prática exige disciplina, documentação e governança para reduzir o impacto de vieses e ruído.", "Nos veremos no Bloco 2, onde examinaremos mecanismos psicológicos subjacentes às decisões (Prospect Theory e vieses), com foco em aplicações contábeis práticas."], "bullets": ["Reconhecer ruído → mitigar vieses.", "Próximo: Bloco 2 — Prospect Theory."], "ref": "Burton & Shah"}];let index=0;const stage=document.getElementById('stage');const counter=document.getElementById('counter');function render(i){const s=slides[i];let paras='';for(let p of s.paragraphs){paras += `<p>${p}</p>`;}let bullets='';if(s.bullets && s.bullets.length){bullets = '<ul>' + s.bullets.map(b=>`<li>${b}</li>`).join('') + '</ul>';}stage.innerHTML = `<div class='slide' role='article'><div class='main'><div class='title'>${s.title}</div><div class='subtitle'>${s.subtitle || ''}</div><div class='content'>${paras}${bullets}</div><aside class='aside' aria-hidden='true'><h4>Referência rápida</h4><p>${s.ref || ''}</p></aside></div>`;counter.textContent = `Slide ${i+1} / ${slides.length}`;document.getElementById('prev').disabled = i===0;document.getElementById('next').disabled = i===slides.length-1;window.scrollTo(0,0);}document.getElementById('prev').addEventListener('click',()=>{if(index>0){index--;render(index);}});document.getElementById('next').addEventListener('click',()=>{if(index<slides.length-1){index++;render(index);}});render(0);</script></body></html>
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Julgamento e Tomada de Decisão em Contabilidade</title>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'>
+<style>
+:root{--bg:#ffffff;--paper:#0b1723;--muted:#333;--accent:#0b5cff;--card:#ffffff;--note:#f7fafc}html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--paper)}.frame{max-width:1100px;margin:12px auto;background:var(--card);border-radius:8px;padding:12px 18px 18px;box-shadow:0 8px 20px rgba(0,0,0,.04)}header{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #eef2ff}header h1{margin:0;font-size:18px}.stage{margin-top:12px;display:flex;flex-direction:column}.slide{display:flex;gap:18px;padding:18px;border-radius:8px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid #eef6ff;overflow:auto}.main{flex:1;min-width:0}.title{font-size:22px;font-weight:700;margin-bottom:6px}.subtitle{font-size:13px;color:var(--muted);margin-bottom:10px}.content p{font-size:15px;line-height:1.6;color:var(--muted);margin:8px 0}.content ul{font-size:15px;line-height:1.6;color:var(--muted);margin:8px 0 16px 20px}.aside{width:320px;flex-shrink:0;background:var(--note);padding:12px;border-radius:8px;border-left:3px solid var(--accent);box-shadow:0 6px 18px rgba(11,92,255,.04)}.aside h4{margin:0;font-size:13px;color:var(--accent)}.aside p{font-size:13px;color:var(--muted);line-height:1.45;margin-top:8px}.notes{margin-top:10px;background:#fbfdff;padding:10px;border-radius:6px;border:1px solid #eef6ff;font-size:13px;color:var(--muted)}.nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px}button{background:var(--accent);border:none;color:#fff;padding:8px 12px;border-radius:8px;font-weight:600;cursor:pointer}@media (max-width:900px){.aside{display:none}.stage{}.title{font-size:20px}.content p{font-size:14px}}
+</style>
+</head>
+<body>
+<div class='frame'>
+<header>
+<h1>Julgamento e Tomada de Decisão em Contabilidade</h1>
+</header>
+<div class='stage' id='stage'></div>
+<div class='nav'>
+<div><strong id='counter'>Slide 1 / 30</strong></div>
+<div style='display:flex;gap:8px'><button id='prev' disabled>Anterior</button><button id='next'>Próximo</button></div>
+</div>
+</div>
+<script>
+const slides = [
+  // Novos slides como prelúdio ao curso existente
+  {
+    "title": "Prelúdio: A Necessidade do Julgamento Contábil",
+    "subtitle": "Por que a contabilidade moderna exige mais do que regras",
+    "paragraphs": [
+      "A contabilidade evoluiu do modelo de custo histórico para um que integra o conceito de valor econômico e de mercado. Normas internacionais, como o IFRS, e seus equivalentes no Brasil, os CPCs, não apenas permitem, mas em muitos casos exigem, a avaliação de ativos com base em **valor justo**, **valor de mercado** ou **fluxo de caixa descontado** (DCF).",
+      "Essa mudança fundamental introduz a necessidade de um julgamento profissional mais aprofundado, pois esses métodos de avaliação dependem de premissas, estimativas e inputs que nem sempre são diretamente observáveis. Compreender as normas é o primeiro passo para o julgamento."
+    ],
+    "bullets": [
+      "Transição de custo histórico para valor econômico.",
+      "Crescente dependência de julgamento e premissas."
+    ],
+    "ref": "IFRS, CPC"
+  },
+  {
+    "title": "Mensuração do Valor Justo (IFRS 13 / CPC 46)",
+    "subtitle": "O coração da avaliação a valor justo",
+    "paragraphs": [
+      "Esta norma central define o valor justo como o preço que seria recebido pela venda de um ativo ou pago pela transferência de um passivo em uma transação ordenada entre participantes do mercado. O mais importante é a **Hierarquia do Valor Justo**, que classifica os inputs de mensuração em três níveis, do mais ao menos objetivo.",
+      "A necessidade de julgamento se intensifica à medida que se desce na hierarquia. Enquanto o Nível 1 é puramente objetivo, os Níveis 2 e 3 requerem cada vez mais estimativas e premissas, abrindo espaço para a subjetividade. O profissional deve documentar a escolha da técnica e as premissas usadas."
+    ],
+    "bullets": [
+      "Nível 1: Preços cotados em mercados ativos (sem julgamento).",
+      "Nível 2: Inputs observáveis (taxas, preços similares).",
+      "Nível 3: Inputs não observáveis (projeções, estimativas)."
+    ],
+    "ref": "IFRS 13 (CPC 46)"
+  },
+  {
+    "title": "Teste de Redução ao Valor Recuperável (IFRS 36 / CPC 01)",
+    "subtitle": "Julgamento em cenários de perda de valor",
+    "paragraphs": [
+      "Esta norma exige que as empresas testem a recuperabilidade de ativos quando há indícios de perda de valor. O valor recuperável é o maior entre o **valor justo deduzido das despesas de venda** e o **valor em uso**. A determinação do **valor em uso** é um exercício intensivo de julgamento.",
+      "Para calcular o valor em uso, os contadores devem estimar **fluxos de caixa futuros** do ativo ou da Unidade Geradora de Caixa (UGC) e descontá-los a valor presente. As premissas sobre o período de projeção, taxas de crescimento e taxas de desconto são cruciais e não são ditadas pela norma, exigindo profundo conhecimento e análise."
+    ],
+    "bullets": [
+      "Impairment test é o maior entre valor justo e valor em uso.",
+      "Valor em uso exige projeções de fluxo de caixa futuro e taxa de desconto."
+    ],
+    "ref": "IFRS 36 (CPC 01)"
+  },
+  {
+    "title": "Reavaliação de Ativos (IAS 16 / CPC 27 & IAS 38 / CPC 04)",
+    "subtitle": "Regras e exceções para reavaliação de ativos tangíveis e intangíveis",
+    "paragraphs": [
+      "A IAS 16 permite o uso de um **modelo de reavaliação** para ativos imobilizados, onde o ativo é ajustado periodicamente para seu valor justo. Este modelo demanda que o valor justo seja determinado com regularidade para evitar distorções significativas nos balanços.",
+      "Para **ativos intangíveis** (IAS 38 / CPC 04), a norma impõe uma restrição fundamental: o modelo de reavaliação é permitido **apenas se existir um mercado ativo** para o ativo em questão. Como esses mercados são extremamente raros para a maioria dos intangíveis, este modelo é quase nunca utilizado, forçando a avaliação baseada em custo."
+    ],
+    "bullets": [
+      "IAS 16: Modelo de reavaliação para Imobilizados (PPE).",
+      "IAS 38: Reavaliação de intangíveis só se houver mercado ativo."
+    ],
+    "ref": "IAS 16 (CPC 27), IAS 38 (CPC 04)"
+  },
+  {
+    "title": "A Ponte para a Finanças Comportamentais",
+    "subtitle": "Onde o julgamento encontra o viés",
+    "paragraphs": [
+      "As normas de contabilidade, ao exigir mensurações baseadas em estimativas (valor em uso) e inputs não observáveis (Nível 3 do valor justo), delegam ao profissional um poder significativo de julgamento. Esta é a fronteira onde a análise técnica encontra o comportamento humano, abrindo espaço para vieses cognitivos.",
+      "Profissionais de contabilidade e finanças não são imunes a vieses como o **viés de ancoragem**, que os leva a se basear excessivamente em um valor inicial, como um preço de compra anterior, ao avaliar um ativo. Da mesma forma, a **teoria do prospecto** explica como a aversão à perda pode influenciar a decisão de postergar o reconhecimento de um impairment, mesmo com evidências claras de desvalorização."
+    ],
+    "bullets": [
+      "Julgamento necessário em áreas como impairment e valor justo.",
+      "Viés de ancoragem pode influenciar a mensuração de valor justo.",
+      "Aversão à perda pode postergar o reconhecimento de perdas."
+    ],
+    "ref": "Behavioral Finance; academic research"
+  },
+  // Fim dos novos slides
+  // Início dos slides originais do Bloco 1
+  {
+    "title": "Slide 1 — Abertura",
+    "subtitle": "Curso: Julgamento e Tomada de Decisão em Contabilidade — Bloco 1: Fundamentos e Ruído",
+    "paragraphs": [
+      "Bem-vindos ao Bloco 1 do curso. Nesta unidade vamos estabelecer a base conceitual necessária para entender como mercados, informação e comportamento humano interagem e influenciam julgamentos contábeis. O enfoque é teórico-prático: compreender modelos clássicos, críticas empíricas e implicações para mensuração e disclosure.",
+      "O material foi organizado para fornecer notas de aula densas: cada slide apresenta explicações detalhadas, sínteses e referências rápidas para facilitar o estudo autônomo. Ao final do bloco, espera-se que o aluno reconheça o papel do ruído, dos vieses e dos limites institucionais na formação de preços."
+    ],
+    "bullets": [
+      "Objetivo: entender EMH, ruído e implicações contábeis.",
+      "Formato: leitura orientada + discussão em aula."
+    ],
+    "ref": "Burton & Shah (2013), Cap. 1"
+  },
+  {
+    "title": "Slide 2 — Agenda do Bloco 1",
+    "subtitle": "O que vamos cobrir",
+    "paragraphs": [
+      "Este bloco percorre cinco eixos principais: (1) Hipótese do Mercado Eficiente (EMH) e o modelo risco–retorno clássico; (2) críticas empíricas à eficiência; (3) o aparecimento das finanças comportamentais; (4) noise traders, herd behavior e limites à arbitragem; e (5) aplicações diretas para julgamentos contábeis, como impairment e provisões.",
+      "A sequência busca construir progressivamente: primeiro estabelecer o referencial teórico, depois mostrar evidência empírica que o questiona e, por fim, relacionar esses insights à prática contábil e de auditoria."
+    ],
+    "bullets": [
+      "EMH e modelo clássico.",
+      "Críticas e anomalias.",
+      "Behavioral Finance e ruído.",
+      "Aplicações contábeis."
+    ],
+    "ref": "Burton & Shah, Cap.1–2"
+  },
+  {
+    "title": "Slide 3 — O que é a EMH?",
+    "subtitle": "Eugene Fama (1970)",
+    "paragraphs": [
+      "A Efficient Market Hypothesis (EMH) foi formalizada por Eugene Fama em 1970. A proposição central é que os preços dos ativos refletem, de forma rápida e fiável, a informação disponível, de modo que não é possível obter ganhos esperados acima do mercado de forma sistemática sem assumir risco adicional.",
+      "Fama distinguiu três formas de eficiência: a forma fraca (sinais passados já estão nos preços), a semi‑forte (toda informação pública é imediatamente incorporada) e a forma forte (inclusive informação privada). Essas categorias orientaram vasta pesquisa empírica nas décadas posteriores."
+    ],
+    "bullets": [
+      "Forma fraca: histórico.",
+      "Forma semi‑forte: informação pública.",
+      "Forma forte: informação privada."
+    ],
+    "ref": "Fama (1970)"
+  },
+  {
+    "title": "Slide 4 — Implicações da EMH",
+    "subtitle": "Random walk e gestão passiva",
+    "paragraphs": [
+      "Se os preços incorporam informação de forma eficiente, então os movimentos futuros dos preços são essencialmente imprevisíveis — um comportamento denominado random walk. Na prática, isso sustentou a ampla adoção da gestão passiva e de fundos indexados, dado o custo e a dificuldade de superar o benchmark.",
+      "Para contabilidade, a suposição de eficiência implica confiar em sinais de mercado ao avaliar ativos a valor justo. Contudo, a realidade operacional (fricções, custos e ruído) já coloca limitações a essa confiança."
+    ],
+    "bullets": [
+      "Random walk e imprevisibilidade.",
+      "Fundamentação da gestão passiva."
+    ],
+    "ref": "Burton & Shah, Cap.2"
+  },
+  {
+    "title": "Slide 5 — Críticas empíricas à EMH",
+    "subtitle": "Volatilidade, anomalias e crises",
+    "paragraphs": [
+      "A literatura empírica apresentou desafios importantes à EMH. Shiller (1981) demonstrou que a volatilidade dos preços muitas vezes excede o que seria justificável pelos fundamentos econômicos, sugerindo que fatores comportamentais ou ruído contribuem para movimentos excessivos.",
+      "Além disso, anomalias recorrentes — como efeito janeiro, momentum e reversões — e eventos extremos (crashs de 1987, bolha dot‑com, crise de 2008) mostram que mercados podem se afastar persistentemente de valores fundamentais, abrindo espaço para explicações alternativas."
+    ],
+    "bullets": [
+      "Volatilidade excessiva (Shiller).",
+      "Anomalias: momentum, reversões, efeitos sazonais.",
+      "Crises que desafiam eficiência."
+    ],
+    "ref": "Shiller (1981); DeBondt & Thaler (1985)"
+  },
+  {
+    "title": "Slide 6 — Homo economicus",
+    "subtitle": "Modelo clássico e racionalidade limitada",
+    "paragraphs": [
+      "O modelo de Homo economicus pressupõe agentes racionais, com preferências estáveis e capacidade de maximizar utilidade. Esse paradigma embasa teorias como Markowitz e CAPM, que explicam preço e retorno a partir de trade‑offs entre risco e retorno.",
+      "Herbert Simon introduziu a noção de racionalidade limitada: agentes usam heurísticas e têm capacidade cognitiva restrita. Esse conceito é crucial para entender por que a hipótese da completa racionalidade pode falhar na explicação do comportamento real dos mercados."
+    ],
+    "bullets": [
+      "Homo economicus: agente racional ideal.",
+      "Racionalidade limitada: Herbert Simon."
+    ],
+    "ref": "Simon (1947); Markowitz (1952)"
+  },
+  {
+    "title": "Slide 7 — Precursores históricos",
+    "subtitle": "Keynes, Graham & Dodd",
+    "paragraphs": [
+      "Antes do desenvolvimento formal da Behavioral Finance, pensadores como Keynes já apontavam para forças psicológicas no comportamento econômico — os 'espíritos animais' que influenciam confiança e investimento. Essas ideias anteciparam, em termos qualitativos, muitos achados posteriores.",
+      "No campo prático, Benjamin Graham e David Dodd (1934) enfatizaram análise fundamentalista e margem de segurança, reconhecendo implicitamente que preços podem divergir do valor intrínseco por longos períodos."
+    ],
+    "bullets": [
+      "Keynes: espíritos animais.",
+      "Graham & Dodd: valor e margem de segurança."
+    ],
+    "ref": "Keynes (1936); Graham & Dodd (1934)"
+  },
+  {
+    "title": "Slide 8 — Nascimento da Behavioral Finance",
+    "subtitle": "Kahneman & Tversky, década de 1970",
+    "paragraphs": [
+      "A Behavioral Finance ganhou corpo quando estudos de psicologia, liderados por Kahneman & Tversky, forneceram evidência de heurísticas e vieses que sistematicamente desviam julgamentos humanos da racionalidade esperada. A Prospect Theory (1979) foi um marco, descrevendo como indivíduos avaliam ganhos e perdas relativamente a pontos de referência.",
+      "A partir daí, economistas e pesquisadores financeiros (Thaler, Barberis, Shleifer) integraram esses insights, explicando anomalias de mercado por via comportamental e mostrando que modelos puramente racionais são insuficientes."
+    ],
+    "bullets": [
+      "Prospect Theory — Kahneman & Tversky (1979).",
+      "Integração psicologia + finanças."
+    ],
+    "ref": "Kahneman & Tversky (1979); Thaler"
+  },
+  {
+    "title": "Slide 9 — Behavioral Finance na prática",
+    "subtitle": "Impacto no comportamento de investidores e gestores",
+    "paragraphs": [
+      "Na prática, investidores institucionais e individuais tomam decisões influenciadas por emoção, excesso de confiança e heurísticas. Gestores podem superestimar suas competências e ajustar avaliações por vieses cognitivos; analistas podem seguir narrativas dominantes em vez de dados fundamentais.",
+      "Contadores e auditores não estão imunes: julgamentos sobre provisões, expectativas de fluxo e reconhecimento de impairment podem ser contaminados por ancoragem, aversão à perda e outras distorções."
+    ],
+    "bullets": [
+      "Excesso de confiança; ancoragem.",
+      "Efeitos sobre valuation e decisões contábeis."
+    ],
+    "ref": "Burton & Shah, Cap.3"
+  },
+  {
+    "title": "Slide 10 — Noise traders",
+    "subtitle": "Definição e effects (De Long et al., 1990)",
+    "paragraphs": [
+      "Noise traders são participantes do mercado cujas decisões não se baseiam em fundamentos mas em ruído — rumores, manchetes, sinais errôneos. De Long et al. (1990) mostraram que esses agentes, quando numerosos, podem deslocar preços e aumentar volatilidade.",
+      "Por tornar o preço menos informativo sobre o valor fundamental, noise traders dificultam a vida de arbitradores e auditores que dependem de sinais de mercado para estimativas."
+    ],
+    "bullets": [
+      "Decisões baseadas em ruído.",
+      "Aumento de volatilidade e desvios."
+    ],
+    "ref": "De Long et al. (1990)"
+  },
+  {
+    "title": "Slide 11 — Herd behavior",
+    "subtitle": "Fatores que geram manada",
+    "paragraphs": [
+      "Herd behavior surge por sinalização, pressão social, medo de perder oportunidades (Fear of Missing out - FOMO) ou porque seguir o grupo pode ser a estratégia de menor custo cognitivo. Esse fenômeno explica parte da formação de bolhas e das correções abruptas posteriores.",
+      "Entender seus mecanismos ajuda contadores a identificar momentos em que premissas de mercado são movidas por narrativa em vez de fundamentos."
+    ],
+    "bullets": [
+      "Sinalização e FOMO.",
+      "Formação de bolhas por imitação."
+    ],
+    "ref": "Bikhchandani et al. (1992)"
+  },
+  {
+    "title": "Slide 12 — Limites à arbitragem (detalhes)",
+    "subtitle": "Risco de sincronização, custos e restrições",
+    "paragraphs": [
+      "A arbitragem teórica pressupõe que agentes racionais explorarão e corrigirão desvios de preço. Na prática, custos de transação, restrições de capital e risco de sincronização (manter posição perdedora até que preço corrija) limitam essa ação. Investidores podem ser forçados a liquidar antes da correção, impondo perdas reais.",
+      "Esses limites explicam por que desvios comportamentais podem persistir: o mercado nem sempre se corrige por arbitragem imediata, e a dinâmica de risco-liquidez pode reforçar a discrepância entre preço e fundamento."
+    ],
+    "bullets": [
+      "Custos de transação.",
+      "Risco de sincronização.",
+      "Pressões de liquidez."
+    ],
+    "ref": "Shleifer & Vishny (1997)"
+  },
+  {
+    "title": "Slide 13 — Análise técnica: crítica e função",
+    "subtitle": "Por que pode ser ruído e quando é útil",
+    "paragraphs": [
+      "A análise técnica tenta identificar padrões em séries históricas de preço. Do ponto de vista acadêmico, muitos padrões são inconsistentes e podem refletir ruído. Contudo, no nível operacional, esses sinais podem ser úteis para timing e gestão de risco — não necessariamente como medida de valor intrínseco.",
+      "Portanto, cabe ao contador distinguir entre informação de sentimento (útil para gestão de risco de mercado) e sinais que realmente informam sobre valor econômico subjacente."
+    ],
+    "bullets": [
+      "Técnica = sentimento/timing.",
+      "Cautela ao usar para valuation."
+    ],
+    "ref": "Burton & Shah"
+  },
+  {
+    "title": "Slide 14 — Ruído e persistência de desvios",
+    "subtitle": "Como e por que desvios persistem",
+    "paragraphs": [
+      "Ruído coletivo e vieses individuais podem produzir desvios de preço que se mantêm por longos períodos, sobretudo quando não há arbitragem suficiente. A persistência cria cenários onde decisões baseadas em preço (p.ex. impairment) podem ser equivocadas se tomadas sem contestação independente.",
+      "A implicação é que profissionais contábeis devem aplicar critérios que filtrem ruído e priorizem evidência objetiva, usando múltiplas fontes e métodos."
+    ],
+    "bullets": [
+      "Desvios persistentes.",
+      "Necessidade de filtragem de ruído."
+    ],
+    "ref": "Burton & Shah"
+  },
+  {
+    "title": "Slide 15 — Impairment: julgamentos e vieses",
+    "subtitle": "Reconhecimento de perdas e aversão à perda",
+    "paragraphs": [
+      "A aversão à perda, documentada na literatura comportamental, pode levar gestores a postergar reconhecimentos de impairment para evitar impactos nos resultados e na remuneração. Isso cria risco de informação enganosa e de medidas tardias que não refletem a real deterioração do valor dos ativos.",
+      "Auditores devem buscar evidência objetiva: comparar premissas internas com benchmarks e exigir cenários adversos e sensibilidade nas projeções."
+    ],
+    "bullets": [
+      "Aversão à perda influencia reconhecimento.",
+      "Teste: cenários e benchmarks."
+    ],
+    "ref": "Prospect Theory; Burton & Shah"
+  },
+  {
+    "title": "Slide 16 — Provisões e contingências",
+    "subtitle": "Conservadorismo, framing e timing",
+    "paragraphs": [
+      "A decisão de reconhecer provisões envolve avaliações de probabilidade e estimação do montante esperado. Framing e vieses podem levar a reconhecimento tardio ou excessivo, dependendo de incentivos e pressão por resultados. A clareza de política contábil e critérios quantitativos mitigam subjetividade.",
+      "A prática recomendada inclui documentação robusta, revisão independente e apresentação clara nas notas explicativas para reduzir ambiguidades interpretativas."
+    ],
+    "bullets": [
+      "Framing altera decisões de provisão.",
+      "Políticas claras e revisão independente."
+    ],
+    "ref": "Burton & Shah"
+  },
+  {
+    "title": "Slide 17 — Valuation: inputs e contaminação",
+    "subtitle": "Como mercado contamina premissas",
+    "paragraphs": [
+      "Inputs de valuation (taxa de desconto, crescimento, volatilidade) são vulneráveis a sinais de mercado. Quando emoções e ruído prevalecem, essas premissas podem tornar-se irreais, produzindo estimativas enviesadas. O analista deve usar múltiplas técnicas e justificar escolhas com dados empíricos.",
+      "A documentação de suposições, a análise de sensibilidade e a utilização de intervalos (em vez de um único número) auxiliam na comunicação da incerteza e reduzem o risco de decisões invasivas baseadas em únicas premissas de mercado."
+    ],
+    "bullets": [
+      "Inputs podem estar enviesados.",
+      "Usar múltiplos métodos e sensibilidade."
+    ],
+    "ref": "Burton & Shah"
+  },
+  {
+    "title": "Slide 18 — Auditoria e revisão de julgamentos",
+    "subtitle": "Procedimentos para reduzir viés",
+    "paragraphs": [
+      "O trabalho de auditoria deve contemplar procedimentos específicos para detectar e mitigar vieses: revisão por pares, análise de plausibilidade, uso de especialistas quando necessário e testes de sensibilidade para premissas críticas. Exigir documentação robusta é essencial.",
+      "Além disso, a independência do auditor e controles de governança interna reduzem o risco de conivência com julgamentos influenciados por pressões de mercado."
+    ],
+    "bullets": [
+      "Revisão por pares e especialistas.",
+      "Testes de sensibilidade e plausibilidade."
+    ],
+    "ref": "Audit practice literature"
+  },
+  {
+    "title": "Slide 19 — Crise de 2008: implicações contábeis",
+    "subtitle": "Modelos, alavancagem e falhas de estimação",
+    "paragraphs": [
+      "A crise de 2008 evidenciou fragilidades em modelos de risco, excessiva dependência de ratings e complexidade de instrumentos securitizados. As perdas foram amplificadas por alavancagem e por avaliações que não refletiam cenários adversos plausíveis.",
+      "Para contadores, a lição foi reforçar testes de estresse, revisão de modelos e maior rigor na divulgação das premissas e limitações dos modelos utilizados."
+    ],
+    "bullets": [
+      "Modelos inadequados e alavancagem.",
+      "Importância de testes de estresse e disclosure."
+    ],
+    "ref": "Post‑crisis literature"
+  },
+  {
+    "title": "Slide 20 — Meme stocks e ruído recente",
+    "subtitle": "Coordenação, redes sociais e volatilidade",
+    "paragraphs": [
+      "Eventos de 2021 mostraram que coordenação em redes sociais pode elevar preços de ações de forma abrupta, criando picos de volatilidade e desafios para posições marcadas a mercado. Esses eventos demonstram como informação informal pode ter impacto real nos preços.",
+      "Para a contabilidade, tais episódios ressaltam cautela ao considerar preços de mercado como evidência única de valor, especialmente quando há sinais de manipulação ou coordenação não fundamentada."
+    ],
+    "bullets": [
+      "Coordenação via redes sociais.",
+      "Cautela com preços em momentos de ruído."
+    ],
+    "ref": "Contemporary reports (2021)"
+  },
+  {
+    "title": "Slide 21 — B3 em 2020: choque e recuperação",
+    "subtitle": "Pandemia, liquidez e premissas",
+    "paragraphs": [
+      "A volatilidade de 2020 ilustra reação rápida a choque exógeno (pandemia) seguida de recuperação, em parte impulsionada por estímulos econômicos e liquidez abundante. Esse movimento desafia quem tenta inferir permanentemente mudanças de valor a partir de movimentos de preço de curto prazo.",
+      "Em cenários assim, contadores devem privilegiar análises de cenários e documentar transições temporárias vs. mudanças estruturais para justificar decisões de mensuração."
+    ],
+    "bullets": [
+      "Choque exógeno e efeitos de liquidez.",
+      "Importância de cenários e documentação."
+    ],
+    "ref": "Market analyses (2020)"
+  },
+  {
+    "title": "Slide 22 — Governança, incentivos e disclosure",
+    "subtitle": "Como reduzir oportunidades de viés",
+    "paragraphs": [
+      "Elementos de governança (comitês, políticas de remuneração alinhadas a horizontes de longo prazo, auditoria independente) reduzem pressões que incentivam práticas contábeis oportunistas. Disclosure claro e transparente também reduz assimetria de informação e facilita a avaliação por stakeholders.",
+      "Políticas internas que obrigam revisão independente de premissas críticas e limites para mudanças de estimativas sem justificativa suportada ajudam a mitigar riscos comportamentais."
+    ],
+    "bullets": [
+      "Comitês e revisão independente.",
+      "Remuneração alinhada a longo prazo."
+    ],
+    "ref": "Corporate governance literature"
+  },
+  {
+    "title": "Slide 23 — Ferramentas práticas para mitigação",
+    "subtitle": "Checklists, documentação e sensibilidade",
+    "paragraphs": [
+      "Ferramentas simples e eficazes incluem checklists de julgamento, documentação padronizada de premissas, uso obrigatório de cenários adversos e análise de sensibilidade. Essas práticas tornam o processo mais transparente e permitem que revisões posteriores entendam a lógica por trás das escolhas.",
+      "A implementação deve ser combinada com treinamento e cultura organizacional que valorize questionamento crítico e revisão independente."
+    ],
+    "bullets": [
+      "Checklists e documentação.",
+      "Cenários e análise de sensibilidade."
+    ],
+    "ref": "Practical guidance literature"
+  },
+  {
+    "title": "Slide 24 — Síntese: orientações práticas",
+    "subtitle": "Resumo operacional",
+    "paragraphs": [
+      "Em síntese, reconheça que preços de mercado são sinais úteis, mas por vezes contaminados por ruído. Em julgamentos contábeis, privilegie evidência múltipla, documentação e políticas claras para reduzir subjetividade. Use sensibilidade e cenários para comunicar incerteza.",
+      "Isso implica que profissionais devem combinar análise quantitativa com julgamento crítico e governança eficaz para melhorar a qualidade das decisões contábeis."
+    ],
+    "bullets": [
+      "Evidência múltipla e documentação.",
+      "Sensibilidade e cenários."
+    ],
+    "ref": "Burton & Shah"
+  },
+  {
+    "title": "Slide 25 — Encerramento do Bloco 1",
+    "subtitle": "Mensagem final e próximos passos",
+    "paragraphs": [
+      "Encerramos o bloco com a ideia central: identificar e reconhecer o ruído nos mercados é condição necessária, embora não suficiente, para melhorar julgamentos contábeis. A prática exige disciplina, documentação e governança para reduzir o impacto de vieses e ruído.",
+      "Nos veremos no Bloco 2, onde examinaremos mecanismos psicológicos subjacentes às decisões (Prospect Theory e vieses), com foco em aplicações contábeis práticas."
+    ],
+    "bullets": [
+      "Reconhecer ruído → mitigar vieses.",
+      "Próximo: Bloco 2 — Prospect Theory."
+    ],
+    "ref": "Burton & Shah"
+  }
+];
+let index=0;
+const stage=document.getElementById('stage');
+const counter=document.getElementById('counter');
+function render(i){
+  const s=slides[i];
+  let paras='';
+  for(let p of s.paragraphs){paras += `<p>${p}</p>`;}
+  let bullets='';
+  if(s.bullets && s.bullets.length){bullets = '<ul>' + s.bullets.map(b=>`<li>${b}</li>`).join('') + '</ul>';}
+  stage.innerHTML = `<div class='slide' role='article'><div class='main'><div class='title'>${s.title}</div><div class='subtitle'>${s.subtitle || ''}</div><div class='content'>${paras}${bullets}</div><aside class='aside' aria-hidden='true'><h4>Referência rápida</h4><p>${s.ref || ''}</p></aside></div></div>`;
+  counter.textContent = `Slide ${i+1} / ${slides.length}`;
+  document.getElementById('prev').disabled = i===0;
+  document.getElementById('next').disabled = i===slides.length-1;
+  window.scrollTo(0,0);
+}
+document.getElementById('prev').addEventListener('click',()=>{
+  if(index>0){
+    index--;
+    render(index);
+  }
+});
+document.getElementById('next').addEventListener('click',()=>{
+  if(index<slides.length-1){
+    index++;
+    render(index);
+  }
+});
+render(0);
+</script>
+</body>
+</html>
+

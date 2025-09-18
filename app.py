@@ -179,14 +179,14 @@ if aula_selecionada:
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://translate.google.com/translate?u=https://www.oanda.com/us-en/trade-tap-blog/trading-knowledge/chart-patterns-in-technical-analysis-a-comprehensive-guide/&hl=ko&sl=en&tl=ko&client=imgs",
+                        "https://www.newtraderu.com/wp-content/uploads/2022/07/Snip-Chart-Pattern-Cheat-Sheet-Google-Chrome-1024x555.png",
                         caption="Exemplo visual complementar - Padrões de análise técnica",
                         width=350
                     )
         
         # Botão para imagem no Bloco 2
         if aula_selecionada == "Aula2_nova.html":
-            st.markdown("### 📷 Recurso extra")
+        
             if st.button("Prospect Theory"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:

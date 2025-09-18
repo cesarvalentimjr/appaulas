@@ -209,7 +209,7 @@ if aula_selecionada:
                     )
                     
         # Instruções de uso
-        st.markdown("---")
+        st.markdown("--")
         st.markdown("""
         ### 💡 Como usar:
         - Use os controles de navegação dentro da apresentação para avançar/retroceder slides  

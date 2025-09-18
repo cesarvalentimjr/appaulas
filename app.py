@@ -170,7 +170,7 @@ if aula_selecionada:
             st.image(
                 "https://www.economicsonline.co.uk/content/images/size/w1000/2024/02/3-2.webp",
                 caption="Exemplo visual complementar - Prospect Theory",
-                use_container_width=True)
+                use_container_width=400 )
         
         # Instruções de uso
         st.markdown("---")

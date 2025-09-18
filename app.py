@@ -174,7 +174,7 @@ if aula_selecionada:
 
         # Botão para imagem no Bloco 1
         if aula_selecionada == "Aula1_nova.html":
-            st.markdown("### 📷 Recurso extra")
+       
             if st.button("Análise técnica"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
@@ -209,7 +209,7 @@ if aula_selecionada:
                     )
         # Botão para imagem no Bloco 3
         if aula_selecionada == "Aula3_nova.html":
-            st.markdown("### 📷 Recurso extra")
+     
             if st.button("Momentum"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:

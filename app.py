@@ -163,7 +163,7 @@ if aula_selecionada:
         # Botão para imagem no Bloco 2
         if aula_selecionada == "Aula2_nova.html":
             st.markdown("### 📷 Recurso extra")
-            if st.button("Mostrar imagem complementar"):
+            if st.button("Prospect Theory"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(

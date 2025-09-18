@@ -171,7 +171,18 @@ if aula_selecionada:
                         caption="Exemplo visual complementar - Random walk",
                         width=350
                     )
-        
+
+        # Botão para imagem no Bloco 1
+        if aula_selecionada == "Aula1_nova.html":
+            st.markdown("### 📷 Recurso extra")
+            if st.button("Análise técnica"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://translate.google.com/translate?u=https://www.oanda.com/us-en/trade-tap-blog/trading-knowledge/chart-patterns-in-technical-analysis-a-comprehensive-guide/&hl=ko&sl=en&tl=ko&client=imgs",
+                        caption="Exemplo visual complementar - Padrões de análise técnica",
+                        width=350
+                    )
         
         # Botão para imagem no Bloco 2
         if aula_selecionada == "Aula2_nova.html":

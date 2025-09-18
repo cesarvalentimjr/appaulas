@@ -178,7 +178,7 @@ if aula_selecionada:
         st.markdown("""
         ### 💡 Como usar:
         - Use os controles de navegação dentro da apresentação para avançar/retroceder slides
-        - Para aulas interativas (AppBF.html), preencha os exercícios diretamente na interface
+        - Para atividades interativas, preencha os exercícios diretamente na interface
         - Use a barra lateral para alternar entre diferentes aulas
         - Todas as funcionalidades originais dos arquivos HTML são preservadas
         """)

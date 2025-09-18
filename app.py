@@ -192,7 +192,7 @@ if aula_selecionada:
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://hursttimeseries.streamlit.app/",
+                        "https://d33vw3iu5hs0zi.cloudfront.net/media/xxl_Image5_Exness_Insights_reversal_candlestick_patterns_3x_e2964841db.webp",
                         caption="Mean reversion & Momentum",
                         width=350
                     )

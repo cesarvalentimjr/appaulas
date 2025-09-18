@@ -172,6 +172,19 @@ if aula_selecionada:
                         width=350
                     )
 
+        # Botão para imagem no Bloco 3
+        if aula_selecionada == "Aula3_nova.html":
+            st.markdown("### 📷 Recurso extra")
+            if st.button("Random walk"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://cdn.corporatefinanceinstitute.com/assets/random-walk-theory.png",
+                        caption="Exemplo visual complementar - Random walk",
+                        width=350
+                    )
+
+        
         # Instruções de uso
         st.markdown("---")
         st.markdown("""

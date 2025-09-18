@@ -215,7 +215,7 @@ if aula_selecionada:
         - Use os controles de navegação dentro da apresentação para avançar/retroceder slides  
         - Para atividades interativas, preencha os exercícios diretamente na interface  
         - Use a barra lateral para alternar entre diferentes aulas  
-        - 
+        
         """)
 
     else:

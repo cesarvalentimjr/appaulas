@@ -165,12 +165,12 @@ if aula_selecionada:
 
         # 🔽 Botão apenas no Bloco 2
         if aula_selecionada == "Aula2_nova.html":
-            st.markdown("### 📷 Recurso extra")
-            if st.button("Mostrar imagem complementar"):
-                st.image(
-                    "https://www.economicsonline.co.uk/content/images/size/w1000/2024/02/3-2.webp",
-                    caption="Exemplo visual complementar - Prospect Theory",
-                    use_column_width=True)
+        st.markdown("### 📷 Gráfico")
+        if st.button("Mostrar imagem complementar"):
+        st.image(
+            "https://www.economicsonline.co.uk/content/images/size/w1000/2024/02/3-2.webp",
+            caption="Exemplo visual complementar - Prospect Theory",
+            use_container_width=True)
         
         # Instruções de uso
         st.markdown("---")

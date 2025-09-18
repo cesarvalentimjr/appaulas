@@ -188,15 +188,26 @@ if aula_selecionada:
         # Botão para imagem no Bloco 3
         if aula_selecionada == "Aula3_nova.html":
             st.markdown("### 📷 Recurso extra")
-            if st.button("Mean reversion & Momentum"):
+            if st.button("Mean reversion"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
                         "https://d33vw3iu5hs0zi.cloudfront.net/media/xxl_Image5_Exness_Insights_reversal_candlestick_patterns_3x_e2964841db.webp",
-                        caption="Mean reversion & Momentum",
+                        caption="Mean reversionm",
                         width=350
                     )
-        
+        # Botão para imagem no Bloco 3
+        if aula_selecionada == "Aula3_nova.html":
+            st.markdown("### 📷 Recurso extra")
+            if st.button("Momentum"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://d33vw3iu5hs0zi.cloudfront.net/media/xxl_Image5_Exness_Insights_reversal_candlestick_patterns_3x_e2964841db.webp",
+                        caption="Momentum",
+                        width=350
+                    )
+                    
         # Instruções de uso
         st.markdown("---")
         st.markdown("""

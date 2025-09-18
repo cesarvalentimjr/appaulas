@@ -203,7 +203,7 @@ if aula_selecionada:
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://d33vw3iu5hs0zi.cloudfront.net/media/xxl_Image5_Exness_Insights_reversal_candlestick_patterns_3x_e2964841db.webp",
+                        "https://learnpriceaction.com/wp-content/uploads/2020/06/momentum-example-1024x786.png",
                         caption="Momentum",
                         width=350
                     )

@@ -184,9 +184,18 @@ if aula_selecionada:
                         caption="Exemplo visual complementar - Prospect Theory",
                         width=350
                     )
-
-   
-
+     
+        # Botão para imagem no Bloco 3
+        if aula_selecionada == "Aula3_nova.html":
+            st.markdown("### 📷 Recurso extra")
+            if st.button("Mean reversion & Momentum"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://hursttimeseries.streamlit.app/",
+                        caption="Mean reversion & Momentum",
+                        width=350
+                    )
         
         # Instruções de uso
         st.markdown("---")

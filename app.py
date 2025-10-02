@@ -229,7 +229,17 @@ if aula_selecionada:
                         caption="Spread",
                         width=350
                     )
-        
+        # Botão para imagem no Bloco 4
+        if aula_selecionada == "Aula4_nova.html":
+     
+            if st.button("Volume"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://www.litefinance.org/pt/blog/for-beginners/volume-de-operacoes-valor-exemplos/",
+                        caption="Volume",
+                        width=350
+                    )  
         # Instruções de uso
         st.markdown("--")
         st.markdown("""

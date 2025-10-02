@@ -4,7 +4,7 @@ import os
 
 # Configuração da página
 st.set_page_config(
-    page_title="Julgamento e Tomada de Decisão em Contabilidade",
+    page_title="Finanças Comportamentais: Julgamento e Tomada de Decisão em Contabilidade",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"

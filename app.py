@@ -244,12 +244,12 @@ if aula_selecionada:
         # Botão para imagem no Bloco 4
         if aula_selecionada == "Aula4_nova.html":
      
-            if st.button("Amígdala"):
+            if st.button("Amígdala e Córtex pré‑frontal"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://ibmef.com.br/wp-content/uploads/2022/09/CURSO-DE-MICRO-EXPRESSAO-FACIAL_transtornos_-transtorno_psicologia_-CURSO-LINGUAGEM-CORPORAL-_-CURSO-DETECCAO-DA-MENTIRA_-CURSO-DE-COMUNICACAO-NAO-VERBAL-_-PERICIA-_-IBMEF_amigdala.png",
-                        caption="Amígdala",
+                        "https://parajovens.unesp.br/wp-content/uploads/2024/09/A-ciencia-cerebral-das-emocoes-e-como-controla-las_imagem3.png",
+                        caption="Amígdala e Córtex pré‑frontal",
                         width=350
                     )
         

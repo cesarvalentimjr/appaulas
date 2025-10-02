@@ -4,7 +4,7 @@ import os
 
 # Configuração da página
 st.set_page_config(
-    page_title="Finanças Comportamentais: Julgamento e Tomada de Decisão em Contabilidade",
+    page_title="Julgamento e Tomada de Decisão em Contabilidade",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -218,7 +218,18 @@ if aula_selecionada:
                         caption="Momentum",
                         width=350
                     )
-                    
+        # Botão para imagem no Bloco 4
+        if aula_selecionada == "Aula4_nova.html":
+     
+            if st.button("Spread"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://traderrodrigo.com.br/wp-content/uploads/2013/02/estrategias_setup_baixa_liquidez_book_rede4.jpg",
+                        caption="Spread",
+                        width=350
+                    )
+        
         # Instruções de uso
         st.markdown("--")
         st.markdown("""

@@ -244,12 +244,12 @@ if aula_selecionada:
         # Botão para imagem no Bloco 4
         if aula_selecionada == "Aula4_nova.html":
      
-            if st.button("Amígdala e Córtex pré‑frontal"):
+            if st.button("Cérebro"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://parajovens.unesp.br/wp-content/uploads/2024/09/A-ciencia-cerebral-das-emocoes-e-como-controla-las_imagem3.png",
-                        caption="Amígdala e Córtex pré‑frontal",
+                        "https://magistralbr.caldic.com/images/1363293318.png",
+                        caption="Cérebro",
                         width=350
                     )
         

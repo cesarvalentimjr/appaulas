@@ -220,7 +220,7 @@ if aula_selecionada:
                     )
         # Botão para imagem no Bloco 4
         if aula_selecionada == "Aula4_nova.html":
-     
+           st.markdown("### 📷 Recurso extra")
             if st.button("Spread"):
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:

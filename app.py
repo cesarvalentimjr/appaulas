@@ -240,6 +240,19 @@ if aula_selecionada:
                         caption="Volume",
                         width=350
                     )  
+
+        # Botão para imagem no Bloco 4
+        if aula_selecionada == "Aula4_nova.html":
+     
+            if st.button("Amígdala"):
+                col1, col2, col3 = st.columns([1, 2, 1])
+                with col2:
+                    st.image(
+                        "https://ibmef.com.br/wp-content/uploads/2022/09/CURSO-DE-MICRO-EXPRESSAO-FACIAL_transtornos_-transtorno_psicologia_-CURSO-LINGUAGEM-CORPORAL-_-CURSO-DETECCAO-DA-MENTIRA_-CURSO-DE-COMUNICACAO-NAO-VERBAL-_-PERICIA-_-IBMEF_amigdala.png",
+                        caption="Amígdala",
+                        width=350
+                    )
+        
         # Instruções de uso
         st.markdown("--")
         st.markdown("""

@@ -236,7 +236,7 @@ if aula_selecionada:
                 col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:
                     st.image(
-                        "https://www.litefinance.org/pt/blog/for-beginners/volume-de-operacoes-valor-exemplos/",
+                        "https://smarttbot.com/trader/wp-content/uploads/2020/03/euca3.png",
                         caption="Volume",
                         width=350
                     )  
